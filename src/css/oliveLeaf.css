@@ -1,0 +1,48 @@
+
+
+
+
+#olive defs linearGradient stop:nth-child(1){
+    
+    stop-color:red;
+    stop-opacity:1
+    
+}
+
+#olive defs linearGradient stop:nth-child(2){
+    
+    stop-color:yellow;
+    stop-opacity:.7;
+    
+}
+
+
+
+#olive g {
+  fill-opacity: 0;
+  animation: fills 8s 2s forwards;
+  stroke: green;
+  stroke-width: 2;
+  /* fill: green; */
+}
+
+#olive g path {
+  stroke-dashoffset: 5000;
+  stroke-dasharray: 5000;
+  animation: borders 2s 1s forwards;
+}
+@keyframes borders {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fills {
+  to {
+    fill-opacity: 0.99;
+  }
+}
+@keyframes empties {
+  to{
+    fill-opacity:0;
+  }
+}

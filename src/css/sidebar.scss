@@ -1,0 +1,27 @@
+.sidebar {
+    width: 15%;
+    height: 97%;
+    // background:grey;
+    // border: 3px solid black;
+    position: relative;
+    // background:#94dfe9;
+    // padding:5%;
+     border-radius: 0 -50% -50% 0 / 500px;
+    object.wave-svg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        // transform: rotate(90deg);
+        min-height: 100vh;
+        max-width:100%;
+        transform:rotate(180deg);
+    }
+
+    object.leaf-pic{
+        // padding-top:5%;
+        // height:15%;
+        transform:rotate(160deg) scaleX(-1)translate(-45%, -25%);
+    }
+
+
+}

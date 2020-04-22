@@ -1,0 +1,23 @@
+.navbar{
+    position:relative;
+    z-index:2;
+    margin:0 10%;
+}
+
+.navbar div{
+    z-index:1;
+    margin:2em 0;
+    font-size:1.3vw;
+}
+.navbar div a{
+    
+    font-size:1em;
+    font-family:overpass;
+    color:rgb(255, 255, 255);
+    text-decoration:none;
+    
+}
+
+.link{
+    font-size:80px;
+}

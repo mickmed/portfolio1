@@ -1,0 +1,39 @@
+
+#-svg defs linearGradient stop:nth-child(1) {
+  stop-color: yellow;
+  stop-opacity: 1;
+}
+
+#wave-svg defs linearGradient stop:nth-child(2) {
+  stop-color: red;
+  stop-opacity: 0.7;
+}
+#wave-svg g {
+  stroke: #0099ff;
+  fill:transparent;
+  fill: #0099ff;
+
+  stroke-width: 42;
+  fill-opacity: 0;
+  animation: fills 2s 1s forwards;
+  box-sizing:border-box;
+}
+
+#wave-svg g path {
+  stroke-dashoffset: 3000;
+  stroke-dasharray: 3000;
+  animation: borders 8s 2s infinite alternate;
+}
+
+@keyframes borders {
+  to {
+    stroke-dashoffset: 0;
+    stroke-width:5;
+    stroke:#ce1186;
+  }
+}
+@keyframes fills {
+  to {
+    fill-opacity: 0.99;
+  }
+}

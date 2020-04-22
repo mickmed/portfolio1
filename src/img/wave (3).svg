@@ -1,0 +1,18 @@
+
+
+<?xml-stylesheet type="text/css" href="../css/waveSVG.css"?>
+<svg version="1.1" id="wave-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1440 320">
+    <defs>
+        <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%">
+                <!--<animate attributeName="offset" values="0;1" repeatCount="1" dur="0s" begin="0s"/>-->
+            </stop>
+            <stop offset="100%">
+                <animate attributeName="offset" values="0;1" repeatCount="0" dur="8s" begin="0s"/>
+            </stop>
+        </linearGradient>
+    </defs>
+    <g stroke="none" stroke-width="20" fill="#000" fill-rule="nonzero">
+        <path d="M0,64L48,80C96,96,192,128,288,122.7C384,117,480,75,576,64C672,53,768,75,864,122.7C960,171,1056,245,1152,229.3C1248,213,1344,107,1392,53.3L1440,0L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z" id="path2"/>
+    </g>
+</svg>

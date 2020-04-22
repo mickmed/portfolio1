@@ -1,0 +1,17 @@
+
+<?xml-stylesheet type="text/css" href="../css/waveSVG.css"?>
+<svg version="1.1" id="wave-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 1440" preserveAspectRatio="none">
+    <!-- <defs>
+        <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"> -->
+                <!--<animate attributeName="offset" values="0;1" repeatCount="1" dur="0s" begin="0s"/>-->
+            <!-- </stop>
+            <stop offset="100%">
+                <animate attributeName="offset" values="0;1" repeatCount="0" dur="8s" begin="0s"/>
+            </stop>
+        </linearGradient>
+    </defs> -->
+    <g stroke="#000" stroke-width=".7" fill="none" fill-rule="nonzero" transform="rotate(-90,721.1374,719.75373)">
+        <path id="path2" d="M 0,160 48,138.7 C 96,117 192,75 288,64 c 96,-11 192,11 288,48 96,37 192,91 288,117.3 96,26.7 192,26.7 288,5.4 96,-21.7 192,-63.7 240,-85.4 L 1440,128 V 0 h -48 C 1344,0 1248,0 1152,0 1056,0 960,0 864,0 768,0 672,0 576,0 480,0 384,0 288,0 192,0 96,0 48,0 H 0 Z" />
+    </g>
+</svg>

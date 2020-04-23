@@ -48,7 +48,7 @@ export async function Projects() {
     let description, project
     if (i % 2 === 0) {
       let description = projWrapper.appendChild(cecl("div", "description"))
-      description.innerText = "project example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstack"
+      description.innerHTML = "<a>project example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstack</a>"
 
       project = projWrapper.appendChild(cecl("div", "project"))
       project.classList.add("project" + e.id, "projectCard")
@@ -57,7 +57,7 @@ export async function Projects() {
       project.classList.add("project" + e.id, "projectCard")
 
       let description = projWrapper.appendChild(cecl("div", "description"))
-      description.innerText = "project example descriptionescriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackscriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstack"
+      description.innerHTML = "<a>project example descriptionescriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackscriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstackproject example descriptionstack</a>"
     }
     // console.log(project)
     //   if (type === "project" && window.matchMedia("(min-width: 600px)").matches) {

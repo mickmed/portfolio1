@@ -22,5 +22,3 @@ body{margin:0 auto;padding:0;max-width:1200px;width:100vw}
 
 #olive defs linearGradient stop:nth-child(1){stop-color:red;stop-opacity:1}#olive defs linearGradient stop:nth-child(2){stop-color:yellow;stop-opacity:.7}#olive g{fill-opacity:0;animation:fills 8s 2s forwards;stroke:green;stroke-width:2}#olive g path{stroke-dashoffset:5000;stroke-dasharray:5000;animation:borders 2s 1s forwards}@keyframes borders{to{stroke-dashoffset:0}}@keyframes fills{to{fill-opacity:0.99}}@keyframes empties{to{fill-opacity:0}}
 
-#-svg defs linearGradient stop:nth-child(1){stop-color:yellow;stop-opacity:1}#wave-svg defs linearGradient stop:nth-child(2){stop-color:red;stop-opacity:0.7}#wave-svg g{stroke:#3cff00;fill:transparent;fill:#0099ff;stroke-width:2;fill-opacity:0;animation:fills 2s 1s forwards;box-sizing:border-box}#wave-svg g path{stroke-dashoffset:3000;stroke-dasharray:3000;animation:borders 8s 2s infinite alternate}@keyframes borders{to{stroke-dashoffset:0;stroke-width:5;stroke:#0099ff}}@keyframes fills{to{fill-opacity:0.99}}
-

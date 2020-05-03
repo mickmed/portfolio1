@@ -36,7 +36,8 @@ export const Router = (route) => {
       },
     })
     .notFound(function () {
-      pageNotFoundController()
+      // pageNotFoundController()
+      // router.navigate(route)
     })
 
     .resolve()

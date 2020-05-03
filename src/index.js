@@ -21,5 +21,7 @@ import "./css/resume.scss"
 import "./css/oliveLeaf.css"
 import "./css/waveSVG.css"
 
+import "./img/wave1.svg"
+
 
 document.body.appendChild(container());

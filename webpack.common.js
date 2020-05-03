@@ -3,20 +3,15 @@ const path = require("path")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
 module.exports = {
-  devtool:'none',
+  devtool: "none",
   devServer: {
     // contentBase: "./dist",
     // open: true
     historyApiFallback: true,
   },
-  
+
   entry: "./src/index.js",
 
-  output: {
-    filename: "[name].[contentHash].js",
-    path: path.resolve(__dirname, "dist"),
-    // publicPath: "/",
-  },
   module: {
     rules: [
       // {
@@ -51,8 +46,7 @@ module.exports = {
             loader: "file-loader",
             options: {
               name: "[path]/[name].[ext]",
-              outputPath: "/",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-              
+              outputPath: "/",
             },
           },
         ],
@@ -62,7 +56,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template:'./src/index.html'
+      template: "./src/index.html",
     }),
   ],
 }

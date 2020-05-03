@@ -3,15 +3,15 @@ const path = require("path")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
 module.exports = {
-  devtool: "none",
-  devServer: {
-    // contentBase: "./dist",
-    // open: true
-    historyApiFallback: true,
-  },
+//   devtool: "none",
+//   devServer: {
+//     // contentBase: "./dist",
+//     // open: true
+//     historyApiFallback: true,
+//   },
 
   entry: "./src/index.js",
-
+  
   module: {
     rules: [
       // {
@@ -30,7 +30,12 @@ module.exports = {
       //       ],
       //     },
       //   },
-      // },
+      // }, 
+      {
+        test: /\.html$/,
+        use: ["html-loader"]
+      },
+
       {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
@@ -45,18 +50,13 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "[path]/[name].[ext]",
-              outputPath: "/",
+              name: "[name].[ext]",
+              outputPath: "/src/img",
             },
           },
         ],
       },
     ],
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-    }),
-  ],
+  
 }

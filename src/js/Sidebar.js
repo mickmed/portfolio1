@@ -10,9 +10,9 @@ export const Sidebar = () => {
   sidebar.appendChild(waveSVG())
 
 
-  let pic = cecl("object", "leaf-pic")
-  pic.type = "image/svg+xml"
-  pic.data = "../src/img/oliveLeaves.svg"
+  // let pic = cecl("object", "leaf-pic")
+  // pic.type = "image/svg+xml"
+  // pic.data = "../src/img/oliveLeaves.svg"
   // sidebar.appendChild(pic)
 
   return sidebar

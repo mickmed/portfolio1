@@ -1,6 +1,6 @@
 import "./Helpers/Image"
 import { qs, cecl } from "./Helpers/domHelper"
-import { getResults } from "./Helpers/apiHelper"
+import { Footer } from "./Footer"
 
 // import { showSingleItemm } from "./api_helper";
 // import { technologies } from "./technologies";
@@ -8,10 +8,10 @@ import { getResults } from "./Helpers/apiHelper"
 
 export async function About() {
   let text =
-    "<a> I am an Instructional Associate for the Software Engineering Immersive program at <span class='ga'>General Assembly's</span> New York campus. I also freelance as a React Developer. Recently, I had the pleasure of working on the data vizualization components for <span class='onehunmill'>the 100 Million Project</span>, which launched on <span class='cspan'>CSPAN February 2020.</span></a>"
+    "<a> I am an Instructional Associate for the Software Engineering Immersive program at <span class='ga'>General Assembly's</span> New York campus. I also freelance as a React Developer. I recently had the pleasure of working on the data vizualization components for <span class='onehunmill'>the 100 Million Project</span>, which launched on <span class='cspan'>CSPAN February 2020.</span></a>"
 
   let text1 =
-    "Although I was a self taught coder, in 2018 I had the opportunity to attend the codeBridge program at <span class='perscholas'>Per Scholas</span> in the Bronx, which in turn afforded me the possibility to attend General Assembly's Web Development Immersive program. Over the last year, I have worked at General Assembly as a Teaching Assistant and an Instructional Associate."
+    "With some self-taught experience, I graduated from the codeBridge program at <span class='perscholas'>Per Scholas</span> in 2018, and in turn General Assembly's Web Development Immersive program in 2019. For the past year I have worked as a Teaching Assistant and an Instructional Associate at General Assembly."
 
   let text2 =
     "You can see some projects here. I mostly build full-stack Javascript apps with React, Node, Sequelize, Express, and Postgres. I also enjoy Vanilla Javascript. Other front-end tools are CSS, JQuery, Bootstrap, and Mapbox. This site was built with Vanilla Javascript and comprizes of a Rails backend."
@@ -83,4 +83,7 @@ export async function About() {
 
   let description2 = paraWrap.appendChild(cecl("div", "text"))
   description2.innerHTML = text2
+  about.appendChild(Footer())
+  
+
 }

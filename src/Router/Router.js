@@ -2,13 +2,13 @@
 import RouterModules from "./RouterModules.js"
 
 export const Router = (route) => {
-  // console.log(route)
+  console.log(route)
   let Navigo = require("navigo")
   let root = null
   let useHash = false // Defaults to: false
   // var hash = '#!'; // Defaults to: '#'
   let router = new Navigo(root, useHash)
-
+  console.log('here')
   router
   
     .on({
@@ -47,5 +47,5 @@ export const Router = (route) => {
 
     }
 
-  // return router
+  return router
 }

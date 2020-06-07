@@ -7,7 +7,9 @@
     // background:#94dfe9;
     // padding:5%;
      border-radius: 0 -50% -50% 0 / 500px;
-    object.wave-svg{
+     transform:translateX(20%);
+    //  z-index:-1;
+    object{
         position: absolute;
         top: 0;
         left: 0;
@@ -15,6 +17,13 @@
         min-height: 100vh;
         max-width:100%;
         transform:rotate(180deg);
+        #wave-svg{
+
+            g{
+                stroke:red;
+                fill:blue;
+            }
+        }
     }
 
     object.leaf-pic{

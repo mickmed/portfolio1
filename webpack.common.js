@@ -4,13 +4,15 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
 module.exports = {
 //   devtool: "none",
-//   devServer: {
-//     // contentBase: "./dist",
-//     // open: true
-//     historyApiFallback: true,
-//   },
+  devServer: {
+    // contentBase: "./dist",
+    // open: true
+    historyApiFallback: true,
+  },
 
-  entry: "./src/index.js",
+  entry: {main:"./src/index.js", 
+  // 'src/css/waveSVG.css':'src/css/waveSVG.css'
+},
   
   module: {
     rules: [
@@ -36,14 +38,7 @@ module.exports = {
         use: ["html-loader"]
       },
 
-      {
-        test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.css$/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
-      },
+     
       {
         test: /\.(png|jpg|gif|svg)$/,
         use: [

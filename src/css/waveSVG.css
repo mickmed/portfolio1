@@ -1,35 +1,40 @@
-
-#-svg defs linearGradient stop:nth-child(1) {
+/* #wave-svg defs linearGradient stop:nth-child(1) {
   stop-color: yellow;
   stop-opacity: 1;
 }
 
-#wave-svg defs linearGradient stop:nth-child(2) {
+#wave svg defs linearGradient stop:nth-child(2) {
   stop-color: red;
   stop-opacity: 0.7;
-}
-#wave-svg g {
+} */
+
+g {
   stroke: #3cff00;
-  fill:transparent;
+  /* fill:transparent; */
   fill: #0099ff;
 
-  stroke-width: 2;
+  stroke-width: 20;
   fill-opacity: 0;
   animation: fills 2s 1s forwards;
   box-sizing:border-box;
 }
 
-#wave-svg g path {
+g path {
   stroke-dashoffset: 3000;
   stroke-dasharray: 3000;
-  animation: borders 8s 2s infinite alternate;
+  animation: borders 2s 1s infinite alternate;
 }
 
 @keyframes borders {
-  to {
+  80% {
+    stroke-dashoffset: 3000;
+    stroke-width:2;
+    stroke:orange; 
+  }
+  100% {
     stroke-dashoffset: 0;
-    stroke-width:5;
-    stroke:#0099ff;
+    stroke-width:10;
+     stroke:#0099ff; 
   }
 }
 @keyframes fills {

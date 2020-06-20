@@ -8,7 +8,6 @@ export const Router = (route) => {
   let useHash = false // Defaults to: false
   // var hash = '#!'; // Defaults to: '#'
   let router = new Navigo(root, useHash)
-  console.log('here')
   router
   
     .on({

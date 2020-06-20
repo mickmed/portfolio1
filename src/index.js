@@ -27,5 +27,8 @@ import "./img/wave1.svg"
 import "./img/100mill8.png"
 import "./img/sm_my-travelogue.png"
 
+
+
+
 document.body.appendChild(Container())
 

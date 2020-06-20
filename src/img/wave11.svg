@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (6e3e5246a0, 2020-05-07)"
+   height="1440"
+   width="319"
+   sodipodi:docname="wave11.svg"
+   id="svg4"
+   version="1.1"
+   preserveAspectRatio="none"
+   viewBox="0 0 319 1440">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     inkscape:current-layer="svg4"
+     inkscape:window-maximized="1"
+     inkscape:window-y="0"
+     inkscape:window-x="0"
+     inkscape:cy="720"
+     inkscape:cx="160"
+     inkscape:zoom="0.61736111"
+     showgrid="false"
+     id="namedview6"
+     inkscape:window-height="1164"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <path
+     sodipodi:nodetypes="ccsssccccc"
+     id="path2"
+     fill="#0000ff"
+     stroke-width="0"
+     stroke="none"
+     d="m 321.4,0.9 -26.7,60 c -26.3,60 -91.46646,180.96314 -96.46646,300.96314 -5,120 48.16646,239.03686 27.16646,359.03686 -21,120 -77.44512,238.63023 -114.44512,358.6302 C 73.954879,1199.5302 54.4,1320.9 60.1,1380.9 l 5.3,60 H 1.4 V 0.9 Z">
+    <animate
+       values="M0,0L60,26.7C120,53,240,107,360,112C480,117,600,75,720,96C840,117,960,203,1080,240C1200,277,1320,267,1380,261.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z;                            M0,0L60,26.7C120,53,240,107,360,112C480,117,600,75,720,96C840,117,960,203,1080,240C1200,277,1320,267,1380,261.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z;                           M0,0L60,26.7C120,53,240,107,360,112C480,117,600,75,720,96C840,117,960,203,1080,240C1200,277,1320,267,1380,261.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z;"
+       begin="mouseover"
+       attributeName="d"
+       dur="2.1s"
+       fill="freeze" />
+  </path>
+</svg>

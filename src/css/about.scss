@@ -5,17 +5,20 @@
   flex-wrap: wrap;
   margin: 1% 1%;
   border-radius: 5px;
-  padding-top: 1% 5%;
+  padding-top: 1% 0;
   margin-top: 6%;
+
   /* margin-left:200px; */
 
   /* background-image: linear-gradient(rgba(255, 255, 255, 1), rgb(252, 245, 236),rgba(252, 215, 174, 0.932)); */
   // background-image: linear-gradient(rgba(255, 255, 255, 0.233), rgba(255, 255, 255, .95),rgba(241, 240, 240, 0.95)); 
   /* font-family:arial; */
-  font-size: 1em;
+  font-size: 3vw;
   overflow-y: scroll;
   height: 100%;
   scrollbar-width: none;
+
+  
 
   .para-wrap {
     position: relative;
@@ -53,7 +56,7 @@
         position: relative;
         padding: 3% 5%;
         
-        width: 40%;
+        width: 70%;
         // transform:translateX(-25%);
         display: flex;
         justify-content: flex-end; &:before {
@@ -95,7 +98,24 @@
     }
   }
 }
+@media only screen and (min-width:600px){
+  .about{
+    margin-top:3%;
+  font-size: 2vw;
+    .para-wrap{
+      .project-img{
+        .img-wrapper{
+          margin-top:5%;
+          width:60%;
+        }
 
+      }
+
+    }
+    
+
+  }
+}
 
 
 @keyframes animate-project {

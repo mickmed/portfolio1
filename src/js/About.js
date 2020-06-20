@@ -1,6 +1,7 @@
 import "./Helpers/Image"
 import { qs, cecl } from "./Helpers/domHelper"
 import { Footer } from "./Footer"
+import { Burger } from "./Burger"
 
 // import { showSingleItemm } from "./api_helper";
 // import { technologies } from "./technologies";
@@ -18,7 +19,55 @@ export async function About() {
   console.log("ABOUT")
   let mainContent = qs(".main-content")
   mainContent.innerHTML = ""
-  mainContent.innerHTML = ""
+
+  let switchBurger = { showSidebar: true }
+  let burger = cecl("div", "burger")
+  for (let i = 0; i < 3; i++) {
+    let div = cecl("div", "line")
+    burger.appendChild(div)
+  }
+  mainContent.appendChild(burger)
+
+  burger = qs(".burger")
+ let sidebar = qs(".sidebar")
+ console.log(sidebar)
+  burger.addEventListener("click", () => {
+    if (switchBurger.showSidebar === true) {
+     
+      sidebar.style.display = "block"
+
+      let count = -100
+      let slider = setInterval(() => {
+        count += 10
+        sidebar.style.transform = `translate(${count}%, 0)`
+    
+       
+        if (count === 0) {
+          clearTimeout(slider)
+          switchBurger.showSidebar = false
+        }else{
+          console.log('counter', 100/count)
+          mainContent.style.width = `${-1000/count}%`
+
+        }
+      }, 40)
+    } else {
+      let count = 10
+      let slider = setInterval(() => {
+        count -= 10
+        sidebar.style.transform = `translate(${count}%, 0)`
+        console.log('count ', -count)
+        mainContent.style.width = `${-count}%`
+        if (count === -100) {
+          console.log("here", sidebar)
+          sidebar.style.display = "none"
+          clearTimeout(slider)
+          switchBurger.showSidebar = true
+        }
+      }, 40)
+    }
+  })
+
   // let paraWrap = cecl("div", "para-wrap")
 
   let about = mainContent.appendChild(cecl("div", "about"))
@@ -77,13 +126,11 @@ export async function About() {
   let perScholas = qs(".text .perscholas")
   perScholas.style.color = "blue"
   perScholas.style.cursor = "pointer"
-  perScholas.addEventListener('click', ()=>{
-    window.open('https://perscholas.org/', '_blank')
+  perScholas.addEventListener("click", () => {
+    window.open("https://perscholas.org/", "_blank")
   })
 
   let description2 = paraWrap.appendChild(cecl("div", "text"))
   description2.innerHTML = text2
   about.appendChild(Footer())
-  
-
 }

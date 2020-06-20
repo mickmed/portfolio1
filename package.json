@@ -33,7 +33,6 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "animejs": "^3.2.0",
     "babel-polyfill": "^6.26.0",
     "navigo": "^7.1.2"
   }

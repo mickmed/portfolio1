@@ -1,14 +1,14 @@
 .navbar{
     position:relative;
     z-index:2;
-    margin:0 10%;
+    margin:0 3%;
     
 }
 
 .navbar div{
     z-index:1;
     margin:2em 0;
-    font-size:1.3vw;
+    font-size:3vw;
 }
 .navbar div a{
     
@@ -21,4 +21,15 @@
 
 .link{
     font-size:80px;
+}
+
+@media only screen and (min-width: 600px) {
+        
+    .navbar{
+        div{
+            font-size:2vw;
+        }
+    }
+   
+
 }

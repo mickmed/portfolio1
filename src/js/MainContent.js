@@ -8,7 +8,7 @@ import { Footer } from './Footer'
 export const MainContent = () => {
     
     const mainContent = cecl('div', 'main-content')
-    console.log(mainContent,Footer())
+   
    
    
     return mainContent

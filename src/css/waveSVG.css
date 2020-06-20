@@ -14,7 +14,7 @@ g {
   fill: #0099ff;
 
   stroke-width: 20;
-  fill-opacity: 0;
+  fill-opacity: 1;
   animation: fills 2s 1s forwards;
   box-sizing:border-box;
 }
@@ -22,7 +22,9 @@ g {
 g path {
   stroke-dashoffset: 3000;
   stroke-dasharray: 3000;
-  animation: borders 2s 1s infinite alternate;
+  
+
+  /* animation: borders 2s 1s infinite alternate; */
 }
 
 @keyframes borders {
@@ -40,5 +42,6 @@ g path {
 @keyframes fills {
   to {
     fill-opacity: 0.99;
+    
   }
 }

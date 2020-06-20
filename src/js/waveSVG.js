@@ -1,13 +1,13 @@
-import { cecl } from './Helpers/domHelper'
-
+import { cecl } from "./Helpers/domHelper"
+// const anime = require("animejs")
 
 export const waveSVG = () => {
-   
-    let svg = cecl("object", "wave-svg")
-    svg.setAttribute('type', 'image/svg+xml')
-    svg.setAttribute('data', '../src/img/wave1.svg')
-    // mainDiv.appendChild(svg)
-    // , mainDiv, {type:"image/svg+xml", data:"../img/waveSVG.svg"})
-    // console.log(svg)
-    return svg
+  let svg = cecl("object", "wave-svg")
+  svg.setAttribute("type", "image/svg+xml")
+  svg.setAttribute("data", "../src/img/wav.svg")
+  let svg1 = cecl('img', 'wave-svg')
+  svg1.src = '../src/img/wav.svg'
+
+     
+  return svg
 }

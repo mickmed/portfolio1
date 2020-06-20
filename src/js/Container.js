@@ -11,10 +11,7 @@ export const Container = () => {
 
   container.appendChild(Sidebar())
   container.appendChild(MainContent())
-
-  // import * as Home from "../js/Home.js"
-  console.log("container")
   Router()
-
+ 
   return container
 }

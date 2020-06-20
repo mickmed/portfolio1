@@ -6,7 +6,7 @@ export const Header = (parentDiv) => {
 
   let namePlate = cecl("a", "name-plate")
   namePlate.innerText = "Mick Roth"
-  namePlate.href = "index.html"
+  namePlate.href = "/"
 
 
 

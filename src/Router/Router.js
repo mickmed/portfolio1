@@ -2,6 +2,8 @@
 import RouterModules from "./RouterModules.js"
 
 export const Router = (route) => {
+
+
   console.log(route)
   let Navigo = require("navigo")
   let root = null

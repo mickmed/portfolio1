@@ -11,6 +11,8 @@ export const Container = () => {
 
   container.appendChild(Sidebar())
   container.appendChild(MainContent())
+  
+
   Router()
  
   return container

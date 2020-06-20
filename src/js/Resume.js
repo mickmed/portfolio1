@@ -1,6 +1,7 @@
 import "./Helpers/Image"
 import { qs, cecl } from "./Helpers/domHelper"
 import { getResults } from "./Helpers/apiHelper"
+import { Burger } from "./Burger"
 
 // import { showSingleItemm } from "./api_helper";
 // import { technologies } from "./technologies";
@@ -8,79 +9,52 @@ import { getResults } from "./Helpers/apiHelper"
 
 export function Resume() {
   console.log("RESUME")
+
   // window.matchMedia("(min-width: 600px)").matches &&
   // document.querySelector('.sidebar').style.display === "none"
   // &&  (document.querySelector('.sidebar').style.display = "inline")
   const array = [
-    { googleDocs: '<i class="fab fa-google-drive"></i>' },
-    { pdf: '<i class="far fa-file-pdf"></i>' },
-    { linkedin: '<i class="fab fa-linkedin"></i>'},
-    { github: '<i class="fab fa-github"></i>'}
+    {
+      type: "googleDocs",
+      icon: '<i class="fab fa-google-drive"></i>',
+      url:
+        "https://docs.google.com/document/d/1F0CtmV9ViPecK5KDHgKS2BZJiSy8QL6LS51BF2IaroI/edit",
+    },
+    { type: "pdf", icon: '<i class="far fa-file-pdf"></i>', url: "" },
+
+    { type: "linkedin", icon: '<i class="fab fa-linkedin"></i>', url: 'https://www.linkedin.com/in/mick-roth' },
+    { type: "github", icon: '<i class="fab fa-github"></i>', url: 'https://github.com/mickmed' },
   ]
 
   let mainContent = qs(".main-content")
   mainContent.innerHTML = ""
-  mainContent.innerHTML = ""
+  mainContent.appendChild(Burger())
   let resume = mainContent.appendChild(cecl("div", "resume"))
   let resImgWrapper = resume.appendChild(cecl("div", "res-img-wrapper"))
 
   array.forEach((opt, i) => {
     let option = resImgWrapper.appendChild(cecl("div", "option"))
-    option.setAttribute('value',(Object.keys(array[i])))
+    option.setAttribute("value", opt.type)
+   
+    option.innerHTML = `<a href = ${opt.url} target='_blank'>${opt.icon}</a>`
 
-    // let a = cecl("a", "link")
-
-    option.innerHTML = Object.values(array[i])
-    // a.setAttribute("href", Object.keys(array[i]))
-    // // a.setAttribute('data-navigo', '')
-    // option.appendChild(a)
-    option.addEventListener('mouseover', (e)=>{
-      
-      resImgWrapper.childNodes.forEach(res=>{
-        res.classList.remove('highlight')
+    option.addEventListener("mouseover", (e) => {
+      resImgWrapper.childNodes.forEach((res) => {
+        res.classList.remove("highlight")
       })
       console.log(resImgWrapper.childNodes[i])
-      option.classList.add('highlight')
-    console.log(option)
+      option.classList.add("highlight")
+      console.log(option)
     })
-    option.classList.remove('highlight')
+    
+    option.classList.remove("highlight")
 
-    // a.addEventListener("click", (e) => {
-    //   e.preventDefault()
-
-    //   let x = qs(".main-content")
-    //   // console.log('x', x.innerHTML)
-    //   x.innerHTML = ""
-    //   // console.log('cleared', x.innerHTML)
-
-    //   while (x.lastElementChild) {
-    //     x.removeChild(x.lastElementChild);
-    //   }
-
-    //   Router(Object.keys(array[i])[0])
-    // router.navigate('resume')
+   
   })
 
-  // if (type === "GoogleDoc") {
 
-  //   let link = imgWrapper.appendChild(cecl('div', 'g-doc-link'))
 
-  //   console.log(type)
-  //   // let anchor = makeElement('a', 'googledoc-link', imgWrapper,{innerText:'link to doc', href:"https://docs.google.com/document/d/e/2PACX-1vTKhTvfNHi3gGnJsJx_B05vuaahwEOi7tspQCAKgLYfP8pOgdfZd1bFWleRN67TOA7_eoq1ieFDfcs4/pub", target:"_blank"})
-  //   let gDoc = imgWrapper.appendChild(cecl("iframe", "iframe"))
-  //   gDoc.src =
-  //     "https://docs.google.com/document/d/1F0CtmV9ViPecK5KDHgKS2BZJiSy8QL6LS51BF2IaroI/edit?usp=sharing"
-  //   gDoc.addEventListener('click', ()=>{
-  //     console.log('hersa')
-  //     // <i class="fab fa-google-drive"></i>
-  //   })
-
-  // }
-  // if (type === ".JPG") {
-  //   let img =
-  //     type === ".JPG" &&
-  //     makeElement("img", "resume", imgWrapper, { src: "./src/img/resume.png" })
-  // }
+  
 
   //   if (type === ".PDF") {
   // console.log(navigator.userAgent)
@@ -168,5 +142,3 @@ export function Resume() {
   // src='https://view.officeapps.live.com/op/embed.aspx?src=[OFFICE_FILE_URL]' width='px' height='px' frameborder='0'
   // < iframe src = "http://docs.google.com/viewer?url=<?=urlencode($url)?>&embedded=true"  style = "position: absolute;width:100%; height: 100%;border: none;" ></iframe>
 }
-
-

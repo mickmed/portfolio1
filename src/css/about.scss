@@ -11,14 +11,12 @@
   /* margin-left:200px; */
 
   /* background-image: linear-gradient(rgba(255, 255, 255, 1), rgb(252, 245, 236),rgba(252, 215, 174, 0.932)); */
-  // background-image: linear-gradient(rgba(255, 255, 255, 0.233), rgba(255, 255, 255, .95),rgba(241, 240, 240, 0.95)); 
+  // background-image: linear-gradient(rgba(255, 255, 255, 0.233), rgba(255, 255, 255, .95),rgba(241, 240, 240, 0.95));
   /* font-family:arial; */
-  font-size: 3vw;
+  font-size: 3.5vw;
   overflow-y: scroll;
   height: 100%;
   scrollbar-width: none;
-
-  
 
   .para-wrap {
     position: relative;
@@ -49,38 +47,39 @@
       justify-content: flex-end;
       display: flex;
       margin-bottom: 5%;
-      transform:translateX(-5%);
-     
+      transform: translateX(-5%);
+      margin-top: 8%;
       .img-wrapper {
         /* height:100%; */
         position: relative;
         padding: 3% 5%;
-        
+
         width: 70%;
         // transform:translateX(-25%);
         display: flex;
-        justify-content: flex-end; &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 0;
-        background: transparent;
-        border: 1px solid transparent;
-        border-radius: 0 12px 0;
-      }
-      
-      &:hover:before {
-        animation: animate-project 0.5s linear forwards;
-        
-      }
+        justify-content: flex-end;
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 0;
+          background: transparent;
+          border: 1px solid transparent;
+          border-radius: 0 12px 0;
+        }
+
+        &:hover:before {
+          animation: animate-project 0.5s linear forwards;
+        }
         .img {
           max-width: 100%;
           height: auto;
           /* margin: 5%; */
-          position: relative;box-shadow: 1px 1px 5px rgb(105, 6, 6);
-          &:hover{
+          position: relative;
+          box-shadow: 1px 1px 5px rgb(105, 6, 6);
+          &:hover {
             transform: scale(1.01);
           }
         }
@@ -98,25 +97,21 @@
     }
   }
 }
-@media only screen and (min-width:600px){
-  .about{
-    margin-top:3%;
-  font-size: 2vw;
-    .para-wrap{
-      .project-img{
-        .img-wrapper{
-          margin-top:5%;
-          width:60%;
+@media only screen and (min-width: 600px) {
+  .about {
+    margin-top: 3%;
+    font-size: 2vw;
+    .para-wrap {
+      .project-img {
+        margin-top: 5%;
+        .img-wrapper {
+         
+          width: 60%;
         }
-
       }
-
     }
-    
-
   }
 }
-
 
 @keyframes animate-project {
   0% {

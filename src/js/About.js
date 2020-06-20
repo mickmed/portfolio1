@@ -3,10 +3,6 @@ import { qs, cecl } from "./Helpers/domHelper"
 import { Footer } from "./Footer"
 import { Burger } from "./Burger"
 
-// import { showSingleItemm } from "./api_helper";
-// import { technologies } from "./technologies";
-// import { navbar } from "./nav";
-
 export async function About() {
   let text =
     "<a> I am an Instructional Associate for the Software Engineering Immersive program at <span class='ga'>General Assembly's</span> New York campus. I also freelance as a React Developer. I recently had the pleasure of working on the data vizualization components for <span class='onehunmill'>the 100 Million Project</span>, which launched on <span class='cspan'>CSPAN February 2020.</span></a>"
@@ -17,63 +13,13 @@ export async function About() {
   let text2 =
     "You can see some projects here. I mostly build full-stack Javascript apps with React, Node, Sequelize, Express, and Postgres. I also enjoy Vanilla Javascript. Other front-end tools are CSS, JQuery, Bootstrap, and Mapbox. This site was built with Vanilla Javascript and comprizes of a Rails backend."
   console.log("ABOUT")
-  let mainContent = qs(".main-content")
+  const mainContent = qs(".main-content")
+
   mainContent.innerHTML = ""
-
-  let switchBurger = { showSidebar: true }
-  let burger = cecl("div", "burger")
-  for (let i = 0; i < 3; i++) {
-    let div = cecl("div", "line")
-    burger.appendChild(div)
-  }
-  mainContent.appendChild(burger)
-
-  burger = qs(".burger")
- let sidebar = qs(".sidebar")
- console.log(sidebar)
-  burger.addEventListener("click", () => {
-    if (switchBurger.showSidebar === true) {
-     
-      sidebar.style.display = "block"
-
-      let count = -100
-      let slider = setInterval(() => {
-        count += 10
-        sidebar.style.transform = `translate(${count}%, 0)`
-    
-       
-        if (count === 0) {
-          clearTimeout(slider)
-          switchBurger.showSidebar = false
-        }else{
-          console.log('counter', 100/count)
-          mainContent.style.width = `${-1000/count}%`
-
-        }
-      }, 40)
-    } else {
-      let count = 10
-      let slider = setInterval(() => {
-        count -= 10
-        sidebar.style.transform = `translate(${count}%, 0)`
-        console.log('count ', -count)
-        mainContent.style.width = `${-count}%`
-        if (count === -100) {
-          console.log("here", sidebar)
-          sidebar.style.display = "none"
-          clearTimeout(slider)
-          switchBurger.showSidebar = true
-        }
-      }, 40)
-    }
-  })
-
-  // let paraWrap = cecl("div", "para-wrap")
+  mainContent.appendChild(Burger())
 
   let about = mainContent.appendChild(cecl("div", "about"))
-
   let paraWrap = about.appendChild(cecl("div", "para-wrap"))
-
   let description = paraWrap.appendChild(cecl("div", "text"))
   description.innerHTML = text
 

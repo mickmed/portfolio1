@@ -35,7 +35,7 @@ export function Navbar(parentDiv, data, type = "about") {
         e.target.style.fontWeight = "600"
 
         let mainContent = qs(".main-content")
-        mainContent.innerHTML = ""
+        // mainContent.innerHTML = ""
 
         // while (mainContent.lastElementChild) {
         //   x.removeChild(mainContent.lastElementChild);

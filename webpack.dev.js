@@ -12,28 +12,5 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, "dist"),
     publicPath: '/'
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html"
-    }),
-    new MiniCssExtractPlugin({
-      filename: "[name].css",
-    }),
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ['style-loader', "css-loader"],
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader, //3. Inject styles into DOM
-          "css-loader", //2. Turns css into commonjs
-          "sass-loader" //1. Turns sass into css
-        ]
-      }
-    ]
-  }
+
 });

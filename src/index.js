@@ -7,6 +7,7 @@ import "@fortawesome/fontawesome-free/js/brands"
 import "./css/body.scss"
 import "./css/container.scss"
 import "./css/mainContent.scss"
+import "./css/image.scss"
 
 import "./css/home.scss"
 
@@ -23,9 +24,12 @@ import "./css/waveSVG.css"
 
 import "./css/footer.scss"
 
+
 import "./img/wave1.svg"
 import "./img/100mill8.png"
 import "./img/sm_my-travelogue.png"
+import "./img/sm_math-game.png"
+import "./img/sm_trees-of-nyc.png"
 
 
 

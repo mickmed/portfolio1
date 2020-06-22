@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const path = require("path")
-const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
 //   devtool: "none",
@@ -10,40 +10,37 @@ module.exports = {
     historyApiFallback: true,
   },
 
-  entry: {main:"./src/index.js", 
-  // 'src/css/waveSVG.css':'src/css/waveSVG.css'
-},
-  
+  entry: "./src/index.js", 
+ 
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/template.html"
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    }),
+  ],
   module: {
     rules: [
-      // {
-      //   test: /\.js$/,
-      //   exclude: /node_modules/,
-      //   use: {
-      //     loader: "babel-loader",
-      //     options: {
-      //       presets: [
-      //         "@babel/preset-env",
-      //         // {
-      //         //   targets: {
-      //         //     esmodules: true,
-      //         //   },
-      //         // },
-      //       ],
-      //     },
-      //   },
-      // }, 
+ 
       {
         test: /\.html$/,
         use: ["html-loader"]
       },
-
+      {
+        test: /\.css$/,
+        use: ['style-loader', "css-loader"],
+      },
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
      
       {
         test: /\.(png|jpg|gif|svg)$/,
         use: [
           {
-            loader: "url-loader",
+            loader: "file-loader",
             options: {
               name: "[name].[ext]",
               outputPath: "/src/img",

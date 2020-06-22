@@ -42,8 +42,9 @@ export let ce = (element_type, className, parent, obj = {}) => {
 }
 
 export const BurgerClick = (switchBurger) => {
-//   const switchBurger = { showSidebar: true }
-  const mainContent = qs('.main-content')
+  //   const switchBurger = { showSidebar: true }
+  console.log(switchBurger)
+  const mainContent = qs(".main-content")
   const sidebar = qs(".sidebar")
   if (switchBurger.showSidebar === true) {
     sidebar.style.display = "block"
@@ -56,8 +57,9 @@ export const BurgerClick = (switchBurger) => {
       if (count === 0) {
         clearTimeout(slider)
         switchBurger.showSidebar = false
+        // console.log('changeswitch', switchBurger)
       } else {
-        console.log("counter", 100 / count)
+        // console.log("if true", 100 / count)
         mainContent.style.width = `${-1000 / count}%`
       }
     }, 40)
@@ -66,14 +68,40 @@ export const BurgerClick = (switchBurger) => {
     let slider = setInterval(() => {
       count -= 10
       sidebar.style.transform = `translate(${count}%, 0)`
-      console.log("count ", -count)
+      // console.log("if false ", -count)
       mainContent.style.width = `${-count}%`
       if (count === -100) {
-        console.log("here", sidebar)
+        // console.log("if false -100", sidebar)
         sidebar.style.display = "none"
         clearTimeout(slider)
         switchBurger.showSidebar = true
       }
     }, 40)
   }
+}
+
+export const Image = (src, title, modal) => {
+  console.log(src)
+  let projectImg = cecl("div", "project-img")
+
+  let imgWrapper = cecl("div", "img-wrapper")
+  projectImg.appendChild(imgWrapper)
+  let div = cecl("div", "div")
+  imgWrapper.appendChild(div)
+ 
+  let img = div.appendChild(cecl("img", "img"))
+  img.src = src
+
+if(modal === true){
+
+  let modal = div.appendChild(cecl("div", "modal"))
+      modal.classList.add("project-modal", "modal-slide")
+      modal.appendChild(cecl("span", "modal-span"))
+      modal.childNodes[0].appendChild(cecl("h2", "project-title"))
+      modal.childNodes[0].childNodes[0].innerText = title
+}
+
+  
+
+  return projectImg
 }

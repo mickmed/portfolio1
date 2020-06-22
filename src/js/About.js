@@ -1,7 +1,6 @@
 import "./Helpers/Image"
-import { qs, cecl } from "./Helpers/domHelper"
+import { qs, cecl, Image } from "./Helpers/domHelper"
 import { Footer } from "./Footer"
-import { Burger } from "./Burger"
 
 export async function About() {
   let text =
@@ -14,9 +13,11 @@ export async function About() {
     "You can see some projects here. I mostly build full-stack Javascript apps with React, Node, Sequelize, Express, and Postgres. I also enjoy Vanilla Javascript. Other front-end tools are CSS, JQuery, Bootstrap, and Mapbox. This site was built with Vanilla Javascript and comprizes of a Rails backend."
   console.log("ABOUT")
   const mainContent = qs(".main-content")
+  console.log("hi", mainContent.childNodes)
 
-  mainContent.innerHTML = ""
-  mainContent.appendChild(Burger())
+  while (mainContent.childNodes.length > 1) {
+    mainContent.removeChild(mainContent.lastChild)
+  }
 
   let about = mainContent.appendChild(cecl("div", "about"))
   let paraWrap = about.appendChild(cecl("div", "para-wrap"))
@@ -50,21 +51,15 @@ export async function About() {
     window.open("https://the100million.org/", "_blank")
   })
 
-  let project = paraWrap.appendChild(cecl("div", "project-img"))
 
-  let imgWrapper = project.appendChild(cecl("div", "img-wrapper"))
-  // imgWrapper.style.transform = 'scale(1.5)'
 
-  imgWrapper.addEventListener("click", (e) => {
-    console.log("here")
-    window.open("https://the100million.org/", "_blank")
+  let image = Image("src/img/100mill8.png", 'punk')
 
-    // target = "_blank"
+  image.addEventListener("click", (evt) => {
+    window.open(e.site_url)
+    target = "_blank"
   })
-
-  let img = project.childNodes[0].appendChild(cecl("img", "img"))
-  img.src = "src/img/100mill8.png"
-
+  paraWrap.appendChild(image)
   // console.log(e.local_url)
 
   let description1 = paraWrap.appendChild(cecl("div", "text"))

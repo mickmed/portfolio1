@@ -1,7 +1,6 @@
 import "./Helpers/Image"
 import { qs, cecl } from "./Helpers/domHelper"
 import { getResults } from "./Helpers/apiHelper"
-import { Burger } from "./Burger"
 
 // import { showSingleItemm } from "./api_helper";
 // import { technologies } from "./technologies";
@@ -22,20 +21,32 @@ export function Resume() {
     },
     { type: "pdf", icon: '<i class="far fa-file-pdf"></i>', url: "" },
 
-    { type: "linkedin", icon: '<i class="fab fa-linkedin"></i>', url: 'https://www.linkedin.com/in/mick-roth' },
-    { type: "github", icon: '<i class="fab fa-github"></i>', url: 'https://github.com/mickmed' },
+    {
+      type: "linkedin",
+      icon: '<i class="fab fa-linkedin"></i>',
+      url: "https://www.linkedin.com/in/mick-roth",
+    },
+    {
+      type: "github",
+      icon: '<i class="fab fa-github"></i>',
+      url: "https://github.com/mickmed",
+    },
   ]
 
   let mainContent = qs(".main-content")
-  mainContent.innerHTML = ""
-  mainContent.appendChild(Burger())
+  console.log("res maincont", mainContent.childNodes)
+  while (mainContent.childNodes.length > 1) {
+    mainContent.removeChild(mainContent.lastChild)
+  }
+  console.log("res maincont", mainContent.childNodes)
+
   let resume = mainContent.appendChild(cecl("div", "resume"))
   let resImgWrapper = resume.appendChild(cecl("div", "res-img-wrapper"))
 
   array.forEach((opt, i) => {
     let option = resImgWrapper.appendChild(cecl("div", "option"))
     option.setAttribute("value", opt.type)
-   
+
     option.innerHTML = `<a href = ${opt.url} target='_blank'>${opt.icon}</a>`
 
     option.addEventListener("mouseover", (e) => {
@@ -46,15 +57,9 @@ export function Resume() {
       option.classList.add("highlight")
       console.log(option)
     })
-    
+
     option.classList.remove("highlight")
-
-   
   })
-
-
-
-  
 
   //   if (type === ".PDF") {
   // console.log(navigator.userAgent)

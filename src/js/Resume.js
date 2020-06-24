@@ -34,11 +34,11 @@ export function Resume() {
   ]
 
   let mainContent = qs(".main-content")
-  console.log("res maincont", mainContent.childNodes)
+  // console.log("res maincont", mainContent.childNodes)
   while (mainContent.childNodes.length > 1) {
     mainContent.removeChild(mainContent.lastChild)
   }
-  console.log("res maincont", mainContent.childNodes)
+  // console.log("res maincont", mainContent.childNodes)
 
   let resume = mainContent.appendChild(cecl("div", "resume"))
   let resImgWrapper = resume.appendChild(cecl("div", "res-img-wrapper"))

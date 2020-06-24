@@ -2,9 +2,9 @@
 import RouterModules from "./RouterModules.js"
 
 export const Router = (route) => {
-  console.log('router', route)
+  // console.log('router', route)
   let Navigo = require("navigo")
- 
+
   let root = null
   let useHash = false // Defaults to: false
   // var hash = '#!'; // Defaults to: '#''
@@ -12,7 +12,11 @@ export const Router = (route) => {
   /**
    * Reload the current route.
    */
- 
+
+  // while (mainContent.childNodes.length > 1) {
+  //   mainContent.removeChild(mainContent.lastChild)
+  // }
+
   let router = new Navigo(root)
   router
 
@@ -22,7 +26,7 @@ export const Router = (route) => {
         RouterModules.modules.Projects().then((module) => module.Projects())
       },
       "/about": function (params) {
-        console.log("about route")
+        // console.log("about route")
         RouterModules.modules.About().then((module) => module.About())
       },
       "/resume": function (params) {
@@ -31,7 +35,7 @@ export const Router = (route) => {
       },
 
       "/": function () {
-        console.log("root route")
+        // console.log("root route")
         RouterModules.modules.About().then((module) => module.About())
 
         //   router.navigate('/product');
@@ -47,9 +51,9 @@ export const Router = (route) => {
 
     .resolve()
   if (route) {
-    console.log("route-->", route)
+    // console.log("route-->", route)
     router.navigate(route)
   }
-  
+
   return router
 }

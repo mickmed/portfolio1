@@ -7,6 +7,8 @@
   scrollbar-width: none;
   height: 90%;
   margin-left: 6%;
+  // border:1px solid red;
+  width:80%;
 
   .burger {
     margin: 6% 0 2%;
@@ -25,8 +27,9 @@
   .line:last-child {
     margin-bottom: 0;
   }
-}
+
 @media only screen and (min-width: 600px) {
+  width:85%;
   .burger {
     transform: translate(-5%, -50%);
 
@@ -36,4 +39,4 @@
       margin-bottom: 1%;
     }
   }
-}
+}}

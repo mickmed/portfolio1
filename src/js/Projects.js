@@ -32,7 +32,7 @@ export async function Projects() {
       image.addEventListener("click", (evt) => {
         window.open(e.site_url)
         target = "_blank"
-      })
+      })  
       paraWrap.appendChild(image)
     }
   })

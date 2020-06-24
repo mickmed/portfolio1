@@ -2,17 +2,19 @@
 
 
 .sidebar {
-    width:18%;
+    width:15%;
     position: relative;
-    padding:5% 5% 0 2%;
+    padding:3% 5% 0 2%;
     height:100%;
-    display:none;
-    background:rgba(72, 167, 112, .98);
-    background:#0099ff;
+    // display:none;console
+    // background:rgba(72, 167, 112, .98);
+    // background:#0099ff;
+    background: rgb(41, 17, 17);
     top:0;
     left:0;
     font-family: 'Overpass';
-    transform:translate(-100%, 0);
+    // transform:translate(-100%, 0);
+  
     // display:none;
     // padding:5%;
     // transform: translateX(20%);
@@ -41,7 +43,7 @@
 
 @media only screen and (min-width: 600px) {
     .sidebar{
-         width:16%;
+         width:10%;
     }
    
 

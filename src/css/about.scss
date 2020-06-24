@@ -7,12 +7,13 @@
   border-radius: 5px;
   padding-top: 1% 0;
   margin-top: 6%;
+  // border:1px solid black;
 
 
   /* background-image: linear-gradient(rgba(255, 255, 255, 1), rgb(252, 245, 236),rgba(252, 215, 174, 0.932)); */
   // background-image: linear-gradient(rgba(255, 255, 255, 0.233), rgba(255, 255, 255, .95),rgba(241, 240, 240, 0.95));
   /* font-family:arial; */
-  font-size: 3.5vw;
+  font-size: 4vw;
   overflow-y: scroll;
   height: 90%;
   scrollbar-width: none;
@@ -25,7 +26,7 @@
     flex-direction: column;
     // background:rgb(252, 252, 241);
     // align-items: center;
-    width: 90%;
+    // width: 90%;
     height: 100%;
     overflow-y: scroll;
 
@@ -35,7 +36,7 @@
       padding: 3% 0;
       color: black;
       font-family: "Overpass";
-      font-size: 1.2em;
+      // font-size: 1.2em;
       width: 85%;
       line-height: 1.8em;
     }
@@ -175,7 +176,7 @@
 @media only screen and (min-width: 600px) {
   .about {
     margin-top: 3%;
-    font-size: 1.2vw;
+    font-size: 2.5vw;
 
     .para-wrap {
       .project-img {

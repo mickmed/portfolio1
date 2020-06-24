@@ -1,5 +1,5 @@
 export const cl = (str) => {
-  return console.log(str)
+  // return console.log(str)
 }
 export const cecl = (type, str) => {
   let el = document.createElement(type)
@@ -57,9 +57,9 @@ export const BurgerClick = (switchBurger) => {
       if (count === 0) {
         clearTimeout(slider)
         switchBurger.showSidebar = false
-        // console.log('changeswitch', switchBurger)
+        console.log("changeswitch", switchBurger)
       } else {
-        // console.log("if true", 100 / count)
+        console.log("if true", 100 / count)
         mainContent.style.width = `${-1000 / count}%`
       }
     }, 40)
@@ -68,10 +68,10 @@ export const BurgerClick = (switchBurger) => {
     let slider = setInterval(() => {
       count -= 10
       sidebar.style.transform = `translate(${count}%, 0)`
-      // console.log("if false ", -count)
+      console.log("if false ", -count)
       mainContent.style.width = `${-count}%`
       if (count === -100) {
-        // console.log("if false -100", sidebar)
+        console.log("if false -100", sidebar)
         sidebar.style.display = "none"
         clearTimeout(slider)
         switchBurger.showSidebar = true
@@ -81,27 +81,55 @@ export const BurgerClick = (switchBurger) => {
 }
 
 export const Image = (src, title, modal) => {
-  console.log(src)
+  // console.log(src)
   let projectImg = cecl("div", "project-img")
 
   let imgWrapper = cecl("div", "img-wrapper")
   projectImg.appendChild(imgWrapper)
   let div = cecl("div", "div")
   imgWrapper.appendChild(div)
- 
+
   let img = div.appendChild(cecl("img", "img"))
   img.src = src
 
-if(modal === true){
+  if (modal === true) {
+    let modal = div.appendChild(cecl("div", "modal"))
+    modal.classList.add("project-modal", "modal-slide")
+    modal.appendChild(cecl("span", "modal-span"))
+    modal.childNodes[0].appendChild(cecl("h2", "project-title"))
+    modal.childNodes[0].childNodes[0].innerText = title
 
-  let modal = div.appendChild(cecl("div", "modal"))
-      modal.classList.add("project-modal", "modal-slide")
-      modal.appendChild(cecl("span", "modal-span"))
-      modal.childNodes[0].appendChild(cecl("h2", "project-title"))
-      modal.childNodes[0].childNodes[0].innerText = title
-}
-
+    let linkModal = cecl("div", "link-modal", imgWrapper)
+    imgWrapper.firstChild.appendChild(linkModal)
   
+    let code = cecl('button', 'git-link')
+    let site = cecl('button', 'site-link')
+    
+    linkModal.appendChild(code)
+    linkModal.appendChild(site)
+
+
+    // linkModalMore.addEventListener("click", async evt => {
+    //   let res = await showSingleItemm(evt, e, "projects");
+
+    //   document.querySelector(".main-content").innerHTML = "";
+    //   navbar({ project: e });
+    //   projects("project", {
+    //     project: e,
+    //     technologies: res.technologies,
+    //     traits: res.traits
+    //   });
+    //   technologies("technologies", { technologies: res.technologies });
+    // });
+
+    // let linkModalSiteBtn = makeElement("button", "site-button", linkModal, {
+    //   innerText: "visit site"
+    // });
+    // linkModalSiteBtn.addEventListener("click", evt => {
+    //   location.href = e.site_url;
+    //   target = "_blank";
+    // });
+  }
 
   return projectImg
 }

@@ -13,8 +13,7 @@ export async function About() {
     "You can see some projects here. I mostly build full-stack Javascript apps with React, Node, Sequelize, Express, and Postgres. I also enjoy Vanilla Javascript. Other front-end tools are CSS, JQuery, Bootstrap, and Mapbox. This site was built with Vanilla Javascript and comprizes of a Rails backend."
   console.log("ABOUT")
   const mainContent = qs(".main-content")
-  console.log("hi", mainContent.childNodes)
-
+  
   while (mainContent.childNodes.length > 1) {
     mainContent.removeChild(mainContent.lastChild)
   }
@@ -46,13 +45,9 @@ export async function About() {
       "_blank"
     )
   })
-
   oneHunMil.addEventListener("click", () => {
     window.open("https://the100million.org/", "_blank")
   })
-
-
-
   let image = Image("src/img/100mill8.png", 'punk')
 
   image.addEventListener("click", (evt) => {

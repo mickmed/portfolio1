@@ -26,7 +26,7 @@ export function Navbar(parentDiv, data, type = "about") {
 
       a.addEventListener("click", (e) => {
         e.preventDefault()
-        console.log(nav.children)
+        // console.log(nav.children)
         for (let i = 0; i < nav.children.length; i++) {
           nav.children[i].firstChild.style.color = "white"
           nav.children[i].firstChild.style.fontWeight = "400"
@@ -34,15 +34,8 @@ export function Navbar(parentDiv, data, type = "about") {
         e.target.style.color = "yellow"
         e.target.style.fontWeight = "600"
 
-        let mainContent = qs(".main-content")
-        // mainContent.innerHTML = ""
-
-        // while (mainContent.lastElementChild) {
-        //   x.removeChild(mainContent.lastElementChild);
-        // }
-
         Router(Object.keys(array[i])[0])
-        // router.navigate('resume')
+       
       })
 
       // console.log(Object.keys(array[i]))

@@ -80,7 +80,7 @@ export const BurgerClick = (switchBurger) => {
   }
 }
 
-export const Image = (src, title, modal) => {
+export const Image = (src, title, modal, site_url) => {
   // console.log(src)
   let projectImg = cecl("div", "project-img")
 
@@ -101,13 +101,23 @@ export const Image = (src, title, modal) => {
 
     let linkModal = cecl("div", "link-modal", imgWrapper)
     imgWrapper.firstChild.appendChild(linkModal)
-  
-    let code = cecl('button', 'git-link')
-    let site = cecl('button', 'site-link')
-    
+
+    let code = cecl("button", "git-link")
+    let site = cecl("button", "site-link")
+    code.innerText = "code"
+    site.innerText = "site"
+
     linkModal.appendChild(code)
     linkModal.appendChild(site)
-
+    console.log(code, site)
+    code.addEventListener("click", (evt) => {
+      window.open('https://github.com/mickmed')
+      
+    })
+    site.addEventListener("click", (evt) => {
+      console.log("hi there", code)
+      window.open(site_url, "_blank")
+    })
 
     // linkModalMore.addEventListener("click", async evt => {
     //   let res = await showSingleItemm(evt, e, "projects");

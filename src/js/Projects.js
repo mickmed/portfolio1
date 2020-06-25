@@ -20,19 +20,16 @@ export async function Projects() {
   let type = "project"
   res["projects"].forEach((e, i) => {
     if (e.title === "NYC Trees" || e.title === "Mental Math") {
-      // console.log("trees", e)
+      console.log("trees", e)
       let paraWrap = projects.appendChild(cecl("div", "para-wrap"))
 
-      let image = Image(`src/img/${e.local_url}`, e.title, true)
+      let image = Image(`src/img/${e.local_url}`, e.title, true, e.site_url)
       let projectImg=qs('.project-img')
       // console.log(projectImg)
       if(projectImg){
         projectImg.style.justifyContent = 'flex-start'
       } 
-      image.addEventListener("click", (evt) => {
-        window.open(e.site_url)
-        target = "_blank"
-      })  
+      
       paraWrap.appendChild(image)
     }
   })

@@ -3,9 +3,9 @@ const path = require("path")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
-//   devtool: "none",
+  devtool: 'inline-source-map',
   devServer: {
-    // contentBase: "./dist",
+    contentBase: "./dist",
     // open: true
     historyApiFallback: true,
   },

@@ -5,18 +5,6 @@
 // let BASE_URL = 'https://portfolio-mick.appspot.com'
 let BASE_URL = "https://portfolio-server-mick.herokuapp.com"
 
-// export let getResultss = async type => {
-//   let results = await fetch(BASE_URL + "/" + type)
-//     .then(res => {
-//       // console.log('resjson', res.json)
-//       return res.json()
-//     })
-//     .then(ans => {
-//       return ans
-//     })
-
-//   return results
-// }
 
 export let getResults = async type => {
   let results = await fetch(BASE_URL + "/" + 'projects')
@@ -30,6 +18,9 @@ export let getResults = async type => {
 
   return type, results
 }
+
+
+
 
 // export let mapData = (data, event) => {
 //   // console.log('mapdata --> data', data)

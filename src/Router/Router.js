@@ -21,6 +21,11 @@ export const Router = (route) => {
   router
 
     .on({
+
+      "/editprojects": function(params){
+        RouterModules.modules.EditProjects().then((module) => module.EditProjects())
+
+      },
       "/projects": function (params) {
         // console.log("project route")
         RouterModules.modules.Projects().then((module) => module.Projects())

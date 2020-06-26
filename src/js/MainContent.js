@@ -1,7 +1,7 @@
 
 import { cl, cecl, ca, qs } from './Helpers/domHelper'
 import { Burger } from "./Burger"
-import { About } from './About1'
+
 import { Footer } from './Footer'
 import { MiniNav } from './MiniNav'
 

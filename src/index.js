@@ -18,6 +18,7 @@ import "./css/header.scss"
 import "./css/about.scss"
 import "./css/project.scss"
 import "./css/resume.scss"
+import "./css/signup.scss"
 
 import "./css/oliveLeaf.scss"
 import "./css/waveSVG.css"

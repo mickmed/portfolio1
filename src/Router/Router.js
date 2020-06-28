@@ -22,8 +22,8 @@ export const Router = (route) => {
 
     .on({
 
-      "/editprojects": function(params){
-        RouterModules.modules.EditProjects().then((module) => module.EditProjects())
+      "/signup": function(params){
+        RouterModules.modules.SignUp().then((module) => module.SignUp())
 
       },
       "/projects": function (params) {

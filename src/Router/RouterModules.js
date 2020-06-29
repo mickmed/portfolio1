@@ -6,7 +6,7 @@ const _modules = {
     Projects: () => import('../js/Projects.js'),
     
     Resume: () => import('../js/Resume.js'),
-    SignUp:()=>import ('../js/SignUp.js')
+    SignUp:()=>import ('../js/Login/SignUp.js')
   };
    
   export default class Router {

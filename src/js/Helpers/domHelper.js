@@ -18,6 +18,14 @@ export const qs = (str) => {
   return document.querySelector(str)
 }
 
+export const btn = (innerText, type, className) => {
+  let btn = cecl('button', className)
+  btn.innerText = innerText
+  btn.type = type
+  return btn
+
+}
+
 export const ac = (parent, child) => {
   // console.log('parent', parent, child)
   let x = parent.appendChild(child)
@@ -109,7 +117,7 @@ export const Image = (src, title, modal, site_url) => {
 
     linkModal.appendChild(code)
     linkModal.appendChild(site)
-    console.log(code, site)
+    // console.log(code, site)
     code.addEventListener("click", (evt) => {
       window.open('https://github.com/mickmed')
       

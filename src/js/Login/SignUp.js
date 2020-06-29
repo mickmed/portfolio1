@@ -4,8 +4,8 @@ import {
   login,
   verify,
   logout,
-} from "./Helpers/apiHelper.js"
-import { cecl, qs } from "./Helpers/domHelper.js"
+} from "../Services/ApiAuth.js"
+import { cecl, qs } from "../Helpers/domHelper.js"
 
 console.log("hha;l;lksdf")
 
@@ -63,7 +63,7 @@ export const SignUp = async () => {
     if (!currentUser && Object.keys(body.user).length !== 0) {
       body = { auth: { ...body.user } }
       console.log("body", body)
-      let login = await login(body)
+      let  user = await login(body)
       let currentUser = await verify()
       loginButton.innerText = currentUser && 'logout'
     } else {

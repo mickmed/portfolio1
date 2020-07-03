@@ -1,4 +1,5 @@
-import BaseUrl from './BaseUrl.js'
+import { BaseUrl as URL} from '../Services/BaseUrl.js'
+const BaseUrl = URL()
 
 
 

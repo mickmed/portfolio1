@@ -1,5 +1,5 @@
 import { getResults } from '../Helpers/apiHelper.js'
-import BaseUrl from './BaseUrl.js'
+import { BaseUrl } from './BaseUrl.js'
 
 
 

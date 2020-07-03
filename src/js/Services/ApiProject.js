@@ -1,11 +1,11 @@
-import { getResults } from '../Helpers/apiHelper.js'
-import { BaseUrl } from './BaseUrl.js'
+import { BaseUrl} from '../Services/BaseUrl.js'
+const baseUrl = BaseUrl()
 
 
 
 export const addProject = async (body) => {
   console.log(JSON.stringify(body))
-  const res = await fetch(`${BaseUrl}/projects`, {
+  const res = await fetch(`${baseUrl}/projects`, {
     method: `post`,
     body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' },
@@ -22,7 +22,7 @@ export const addProject = async (body) => {
 
 export const updateProject = async (body, id) => {
     console.log(JSON.stringify(body))
-    const res = await fetch(`${BaseUrl}/projects/${id}`, {
+    const res = await fetch(`${baseUrl}/projects/${id}`, {
       method: `put`,
       body: JSON.stringify(body),
       headers: { 'Content-Type': 'application/json' },
@@ -40,7 +40,7 @@ export const updateProject = async (body, id) => {
 
     console.log('delete method')
    
-    const res = await fetch(`${BaseUrl}/projects/${id}`, {
+    const res = await fetch(`${baseUrl}/projects/${id}`, {
       method: `delete`,
       headers: { 'Content-Type': 'application/json' }
     })

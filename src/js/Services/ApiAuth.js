@@ -1,5 +1,5 @@
-import { BaseUrl as URL} from '../Services/BaseUrl.js'
-const BaseUrl = URL()
+import { BaseUrl } from '../Services/BaseUrl.js'
+const baseUrl = BaseUrl()
 
 
 
@@ -29,7 +29,7 @@ export function setHeaders(headers) {
   export const signUp = async (body) => {
     console.log(JSON.stringify(body))
     
-    let res = await fetch(BaseUrl + "/users", {
+    let res = await fetch(baseUrl + "/users", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -46,7 +46,7 @@ export function setHeaders(headers) {
   }
   
   export const login = async (body) => {
-    let res = await fetch(BaseUrl + "/auth/login", {
+    let res = await fetch(baseUrl + "/auth/login", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -67,7 +67,7 @@ export function setHeaders(headers) {
     const token = localStorage.getItem("authToken")
   
     if (token) {
-      const res = await fetch(BaseUrl + "/auth/verify", {
+      const res = await fetch(baseUrl + "/auth/verify", {
         method: "get",
         headers: setHeaders({
           "Content-Type": "application/json",

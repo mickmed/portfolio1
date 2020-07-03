@@ -1,5 +1,5 @@
 import {
-  getResults,
+ 
   signUp,
   login,
   verify,
@@ -85,5 +85,5 @@ export const SignUp = async () => {
   signUpDiv.appendChild(loginButton)
   mainContent.appendChild(signUpDiv)
 
-  // let res = await getResults()
+  
 }

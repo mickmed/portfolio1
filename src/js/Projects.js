@@ -1,9 +1,8 @@
 import './Helpers/Image'
 import { qs, cecl, Image, btn } from './Helpers/domHelper'
-import { getResults } from './Helpers/apiHelper.js'
 import { verify } from './Services/ApiAuth.js'
 
-import { addProject, updateProject, deleteProject } from './Services/ApiProject.js'
+import { getProjects, addProject, updateProject, deleteProject } from './Services/ApiProject.js'
 import { Form } from './Helpers/Form.js'
 
 
@@ -19,7 +18,7 @@ export async function Projects() {
 
   let projects = cecl('div', 'projects')
   mainContent.appendChild(projects)
-  let res = await getResults()
+  let res = await getProjects()
 
   let body = { project: {} }
   let inputs = ['name', 'subtitle','site_url', 'img_url', 'github_url']
@@ -30,7 +29,11 @@ export async function Projects() {
 
     paraWrap.appendChild(Image(`src/img/${e.img_url}`, e.name, true, e.site_url))
 console.log(await(verify()))
-    if (await verify()) {
+    
+
+
+
+if (await verify()) {
       
       let form = paraWrap.appendChild(Form(body, inputs, e))
       form.appendChild(btn('update project', 'submit', 'update-btn'))
@@ -53,6 +56,11 @@ console.log(await(verify()))
       })
     }
   })
+
+
+
+
+
 
   let form = projects.appendChild(Form(body, inputs))
   form.appendChild(btn('add project', 'submit', 'add-project-btn'))

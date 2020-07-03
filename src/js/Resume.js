@@ -1,6 +1,6 @@
 import "./Helpers/Image"
 import { qs, cecl } from "./Helpers/domHelper"
-import { getResults } from "./Helpers/apiHelper"
+
 
 // import { showSingleItemm } from "./api_helper";
 // import { technologies } from "./technologies";

@@ -1,5 +1,21 @@
 import { BaseUrl} from '../Services/BaseUrl.js'
 const baseUrl = BaseUrl()
+console.log(baseUrl)
+
+
+
+export let getProjects = async (type) => {
+  let results = await fetch(`${baseUrl}/projects`)
+    .then((res) => {
+      console.log(res.json)
+      return res.json()
+    })
+    .then((ans) => {
+      return ans
+    })
+
+  return type, results
+}
 
 
 

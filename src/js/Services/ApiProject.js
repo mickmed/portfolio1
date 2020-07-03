@@ -1,8 +1,11 @@
 import { getResults } from '../Helpers/apiHelper.js'
+import BaseUrl from './BaseUrl.js'
+
+
 
 export const addProject = async (body) => {
   console.log(JSON.stringify(body))
-  const res = await fetch('http://localhost:3000/projects', {
+  const res = await fetch(`${BaseUrl}/projects`, {
     method: `post`,
     body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' },
@@ -19,7 +22,7 @@ export const addProject = async (body) => {
 
 export const updateProject = async (body, id) => {
     console.log(JSON.stringify(body))
-    const res = await fetch(`http://localhost:3000/projects/${id}`, {
+    const res = await fetch(`${BaseUrl}/projects/${id}`, {
       method: `put`,
       body: JSON.stringify(body),
       headers: { 'Content-Type': 'application/json' },
@@ -37,7 +40,7 @@ export const updateProject = async (body, id) => {
 
     console.log('delete method')
    
-    const res = await fetch(`http://localhost:3000/projects/${id}`, {
+    const res = await fetch(`${BaseUrl}/projects/${id}`, {
       method: `delete`,
       headers: { 'Content-Type': 'application/json' }
     })

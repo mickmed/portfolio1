@@ -6,6 +6,7 @@ import { verify } from './Services/ApiAuth.js'
 import { addProject, updateProject, deleteProject } from './Services/ApiProject.js'
 import { Form } from './Helpers/Form.js'
 
+
 export async function Projects() {
   console.log('PROJECTS')
   let mainContent = qs('.main-content')

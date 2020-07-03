@@ -1,9 +1,8 @@
-
-const BASE_URL = process.env.NODE_ENV === 'production' ? 'https://portfolio-mick-server.herokuapp.com' : 'http://localhost:3000'
-
+import BaseUrl from './BaseUrl.js'
 
 
 
+console.log(process.env.NODE_ENV)
 
 
 export function setHeaders(headers) {
@@ -29,7 +28,7 @@ export function setHeaders(headers) {
   export const signUp = async (body) => {
     console.log(JSON.stringify(body))
     
-    let res = await fetch(BASE_URL + "/users", {
+    let res = await fetch(BaseUrl + "/users", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -46,7 +45,7 @@ export function setHeaders(headers) {
   }
   
   export const login = async (body) => {
-    let res = await fetch(BASE_URL + "/auth/login", {
+    let res = await fetch(BaseUrl + "/auth/login", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
@@ -67,7 +66,7 @@ export function setHeaders(headers) {
     const token = localStorage.getItem("authToken")
   
     if (token) {
-      const res = await fetch(BASE_URL + "/auth/verify", {
+      const res = await fetch(BaseUrl + "/auth/verify", {
         method: "get",
         headers: setHeaders({
           "Content-Type": "application/json",

@@ -7,9 +7,10 @@ import {
 } from "../Services/ApiAuth.js"
 import { cecl, qs } from "../Helpers/domHelper.js"
 
-console.log("hha;l;lksdf")
+
 
 export const SignUp = async () => {
+
   // const body = {
   //   user: { username: "ted", email: "ted@ted.com", password: "123456" },
   // }
@@ -52,6 +53,10 @@ export const SignUp = async () => {
 
   
   let currentUser = await verify()
+  if(currentUser.errors){
+    console.log('herror')
+    logout()
+  }
   console.log('cu', currentUser)
 
   loginButton.innerText = currentUser ? 'logout' : 'login' 
@@ -63,7 +68,7 @@ export const SignUp = async () => {
     if (!currentUser && Object.keys(body.user).length !== 0) {
       body = { auth: { ...body.user } }
       console.log("body", body)
-      let  user = await login(body)
+      let user = await login(body)
       let currentUser = await verify()
       loginButton.innerText = currentUser && 'logout'
     } else {

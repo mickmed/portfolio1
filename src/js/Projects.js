@@ -1,6 +1,8 @@
 import './Helpers/Image'
 import { qs, cecl, Image, btn } from './Helpers/domHelper'
-import { getResults, verify } from './Helpers/apiHelper'
+import { getResults } from './Helpers/apiHelper.js'
+import { verify } from './Services/ApiAuth.js'
+
 import { addProject, updateProject, deleteProject } from './Services/ApiProject.js'
 import { Form } from './Helpers/Form.js'
 
@@ -23,8 +25,9 @@ export async function Projects() {
     // let image = Image(`src/img/${e.img_url}`, e.name, true, e.site_url)
 
     paraWrap.appendChild(Image(`src/img/${e.img_url}`, e.name, true, e.site_url))
-
+console.log(await(verify()))
     if (await verify()) {
+      
       let form = paraWrap.appendChild(Form(body, inputs, e))
       form.appendChild(btn('update project', 'submit', 'update-btn'))
 

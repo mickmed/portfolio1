@@ -1,3 +1,11 @@
+
+const BASE_URL = process.env.NODE_ENV === 'production' ? 'http://' : 'http://localhost:3000'
+
+
+
+
+
+
 export function setHeaders(headers) {
     if (localStorage.authToken) {
       return {
@@ -16,8 +24,11 @@ export function setHeaders(headers) {
     }
   }
   
+
+
   export const signUp = async (body) => {
     console.log(JSON.stringify(body))
+    
     let res = await fetch(BASE_URL + "/users", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -63,9 +74,11 @@ export function setHeaders(headers) {
         }),
       })
         .then((json) => {
+         
           return json.json()
         })
         .then((data) => {
+         
           return data
         })
   

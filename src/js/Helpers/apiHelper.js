@@ -54,46 +54,46 @@ export const signUp = async (body) => {
   return res
 }
 
-export const login = async (body) => {
-  let res = await fetch(BASE_URL + "/auth/login", {
-    method: "post",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  })
-    .then((json) => {
-      return json.json()
-    })
-    .then((data) => {
-      localStorage.setItem("authToken", data.token)
+// export const login = async (body) => {
+//   let res = await fetch(BASE_URL + "/auth/login", {
+//     method: "post",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(body),
+//   })
+//     .then((json) => {
+//       return json.json()
+//     })
+//     .then((data) => {
+//       localStorage.setItem("authToken", data.token)
 
-      return data
-    })
+//       return data
+//     })
 
-  return res
-}
+//   return res
+// }
 
-export const verify = async () => {
-  const token = localStorage.getItem("authToken")
+// export const verify = async () => {
+//   const token = localStorage.getItem("authToken")
 
-  if (token) {
-    const res = await fetch(BASE_URL + "/auth/verify", {
-      method: "get",
-      headers: setHeaders({
-        "Content-Type": "application/json",
-      }),
-    })
-      .then((json) => {
-        return json.json()
-      })
-      .then((data) => {
-        return data
-      })
+//   if (token) {
+//     const res = await fetch(BASE_URL + "/auth/verify", {
+//       method: "get",
+//       headers: setHeaders({
+//         "Content-Type": "application/json",
+//       }),
+//     })
+//       .then((json) => {
+//         return json.json()
+//       })
+//       .then((data) => {
+//         return data
+//       })
 
-    return res
-  }
+//     return res
+//   }
 
-  return false
-}
+//   return false
+// }
 
 
 export const getCurrentUser = async () => {

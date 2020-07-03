@@ -22,7 +22,7 @@ export async function Projects() {
   let res = await getResults()
 
   let body = { project: {} }
-  let inputs = ['name', 'site_url', 'img_url']
+  let inputs = ['name', 'subtitle','site_url', 'img_url', 'github_url']
   res.forEach(async (e, i) => {
     let paraWrap = projects.appendChild(cecl('div', 'para-wrap'))
 
@@ -44,6 +44,7 @@ console.log(await(verify()))
       let deletebutton = paraWrap.appendChild(
         btn('delete project', 'button', 'delete-btn')
       )
+      
 
       deletebutton.addEventListener('click', async (evt) => {
         evt.preventDefault()

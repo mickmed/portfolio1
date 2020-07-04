@@ -1,13 +1,11 @@
 import { BaseUrl} from '../Services/BaseUrl.js'
 const baseUrl = BaseUrl()
-console.log(baseUrl)
-
 
 
 export let getProjects = async (type) => {
   let results = await fetch(`${baseUrl}/projects`)
     .then((res) => {
-      console.log(res.json)
+      
       return res.json()
     })
     .then((ans) => {
@@ -49,12 +47,12 @@ export const updateProject = async (body, id) => {
       .then((data) => {
         return data
       })
-    console.log(res)
+ 
   }
 
   export const deleteProject = async (id) => {
 
-    console.log('delete method')
+  
    
     const res = await fetch(`${baseUrl}/projects/${id}`, {
       method: `delete`,
@@ -68,3 +66,20 @@ export const updateProject = async (body, id) => {
       })
     console.log(res)
   }
+
+
+export const updateProjectTechnologies = async(project_id, id)=>{
+  console.log('upt')
+  const res = await fetch(`${baseUrl}/projects/${project_id}/technologies/${id}`, {
+    method: `put`,
+    headers: { 'Content-Type': 'application/json' }
+  })
+  .then((json) => {
+    return json.json()
+  })
+  .then((data) => {
+    return data
+  })
+console.log(res)
+
+}

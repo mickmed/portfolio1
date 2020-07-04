@@ -54,10 +54,13 @@ export const SignUp = async () => {
   
   let currentUser = await verify()
   if(currentUser.errors){
-    console.log('herror')
+    console.log('logout due to error')
     logout()
+    let loginButton = cecl("button", "login")
+
+
   }
-  console.log('cu', currentUser)
+  
 
   loginButton.innerText = currentUser ? 'logout' : 'login' 
   
@@ -67,7 +70,7 @@ export const SignUp = async () => {
     // console.log(currentUser)
     if (!currentUser && Object.keys(body.user).length !== 0) {
       body = { auth: { ...body.user } }
-      console.log("body", body)
+     
       let user = await login(body)
       let currentUser = await verify()
       loginButton.innerText = currentUser && 'logout'

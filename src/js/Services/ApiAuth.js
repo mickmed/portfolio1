@@ -1,11 +1,6 @@
 import { BaseUrl } from '../Services/BaseUrl.js'
 const baseUrl = BaseUrl()
 
-console.log(baseUrl)
-
-console.log(process.env.NODE_ENV)
-
-
 export function setHeaders(headers) {
     if (localStorage.authToken) {
       return {

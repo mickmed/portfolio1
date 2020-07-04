@@ -10,7 +10,7 @@ export async function About() {
     "With some self-taught experience, I graduated from the codeBridge program at <span class='perscholas'>Per Scholas</span> in 2018, and in turn General Assembly's Web Development Immersive program in 2019. For the past year I have worked as a Teaching Assistant and an Instructional Associate at General Assembly."
 
   let text2 =
-    "You can see some projects here. I mostly build full-stack Javascript apps with React, Node, Sequelize, Express, and Postgres. I also enjoy Vanilla Javascript. Other front-end tools are CSS, JQuery, Bootstrap, and Mapbox. This site was built with Vanilla Javascript and comprizes of a Rails backend."
+    "You can see some projects <span class='projects-link'>here</span>. I mostly build full-stack Javascript apps with React, Node, Sequelize, Express, and Postgres. I also enjoy Vanilla Javascript. Other front-end tools are CSS, JQuery, Bootstrap, and Mapbox. This site was built with Vanilla Javascript and comprizes of a Rails backend."
   console.log("ABOUT")
   const mainContent = qs(".main-content")
   
@@ -35,8 +35,11 @@ export async function About() {
   oneHunMil.style.color = "blue"
   cspan.style.cursor = "pointer"
 
+ 
+
+
   ga.addEventListener("click", () => {
-    window.open("https://generalassemb.ly/", "_blank")
+    window.open("https://generalassemb.ly/instructors/mick-roth/23105", "_blank")
   })
   cspan.addEventListener("click", () => {
     console.log("here")
@@ -48,6 +51,7 @@ export async function About() {
   oneHunMil.addEventListener("click", () => {
     window.open("https://the100million.org/", "_blank")
   })
+
   let image = Image("src/img/100mill8.png", 'punk')
 
   image.addEventListener("click", (evt) => {
@@ -68,5 +72,12 @@ export async function About() {
 
   let description2 = paraWrap.appendChild(cecl("div", "text"))
   description2.innerHTML = text2
+  let projectsLink = qs(".projects-link")
+  console.log(projectsLink)
+  projectsLink.style.color = "blue"
+  projectsLink.style.cursor = "pointer"
+    projectsLink.addEventListener('click',()=>{
+    window.location.href = '/projects'
+  })
   about.appendChild(Footer())
 }

@@ -119,11 +119,11 @@ export const Image = (src, title, modal, site_url) => {
     linkModal.appendChild(site)
     // console.log(code, site)
     code.addEventListener("click", (evt) => {
-      window.open('https://github.com/mickmed')
+      window.open('https://github.com/mickmed', '_blank')
       
     })
     site.addEventListener("click", (evt) => {
-      console.log("hi there", code)
+     
       window.open(site_url, "_blank")
     })
 

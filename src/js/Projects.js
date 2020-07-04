@@ -98,14 +98,14 @@ export async function Projects() {
     }
   })
 
-  //ADD PROJECT
-  // let form = projects.appendChild(Form({}, body))
-  // form.appendChild(btn("add project", "submit", "add-project-btn"))
-  // form.addEventListener("submit", async (e) => {
-  //   e.preventDefault()
-  //   await addProject(body)
-  //   await Projects()
-  // })
+  // ADD PROJECT
+  let form = projects.appendChild(Form(res[0], handleChange))
+  form.appendChild(btn("add project", "submit", "add-project-btn"))
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault()
+    await addProject(body)
+    await Projects()
+  })
 
   //
 }

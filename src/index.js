@@ -26,11 +26,12 @@ import "./css/waveSVG.css"
 import "./css/footer.scss"
 
 
-import "./img/wave1.svg"
-import "./img/100mill8.png"
-import "./img/sm_my-travelogue.png"
-import "./img/sm_math-game.png"
-import "./img/sm_trees-of-nyc.png"
+// import "./img/wave1.svg"
+// // import "./img/100mill8.png"
+// import "./img/sm_my-travelogue.png"
+// // import "./img/sm_math-game.png"
+// import "./img/sm_trees-of-nyc.png"
+// import "./img/sm-trees.png"
 
 
 

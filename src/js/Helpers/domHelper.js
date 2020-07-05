@@ -18,6 +18,10 @@ export const qs = (str) => {
   return document.querySelector(str)
 }
 
+export const qsa = (str) => {
+  return document.querySelectorAll(str)
+}
+
 export const btn = (innerText, type, className) => {
   let btn = cecl('button', className)
   btn.innerText = innerText
@@ -97,8 +101,17 @@ export const Image = (src, title, modal, site_url) => {
   let div = cecl("div", "div")
   imgWrapper.appendChild(div)
 
+
+
   let img = div.appendChild(cecl("img", "img"))
   img.src = src
+  
+  console.log(img.height, img.width)
+  let imgHeight = img.height > img.width ? '50%' : '100%'
+  console.log('ig',imgHeight)
+  // imgWrapper.style.height = imgHeight
+  // img.style.height = imgHeight
+
 
   if (modal === true) {
     let modal = div.appendChild(cecl("div", "modal"))

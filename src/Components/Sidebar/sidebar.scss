@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC|Catamaran|Oswald|Montserrat:400,700|Overpass:100,300,400|Satisfy|Yanone+Kaffeesatz:200");
+
+
+.sidebar {
+    width:15%;
+    position: relative;
+    padding:3% 4% 0 2%;
+    height:100%;
+    // display:none;console
+    // background:rgba(72, 167, 112, .98);
+    // background:#0099ff;
+    background: rgb(41, 17, 17);
+    top:0;
+    left:0;
+    font-family: 'Overpass';
+    // transform:translate(-100%, 0);
+  
+    // display:none;
+    // padding:5%;
+    // transform: translateX(20%);
+    // background-image: url("../img/wav.svg");
+    // background-size: 100px 1000px;
+    // background-repeat: no-repeat;
+    // transform: rotate(270deg);
+    z-index: 10;
+// 
+    
+    object {
+        height: 30%;
+        width: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotate(270deg) translate(-35%, -120%);
+    }
+
+    object.leaf-pic {
+        // padding-top:5%;
+        // height:15%;
+        transform: rotate(160deg) scaleX(-1) translate(-45%, -25%);
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .sidebar{
+         width:10%;
+    }
+   
+
+}

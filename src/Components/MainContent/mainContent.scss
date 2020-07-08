@@ -1,0 +1,40 @@
+.main-content {
+	position: relative;
+	top: 5;
+	margin-left: 6%;
+	width: 73%;
+	height: 90%;
+	scrollbar-width: none;
+	.burger {
+		display: block;
+		transform: translate(-2vw);
+		z-index: 20;
+		margin: 6% 0 2%;
+		.line {
+			margin-bottom: 2%;
+			border-bottom: 2px solid #bbb;
+			width: 10%;
+		}
+		.line:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.mail-to {
+		position: absolute;
+		top: .5%;
+		right: 0;
+		border: 0;
+		background: transparent;
+	}
+	@media only screen and (min-width: 600px) {
+		width: 85%;
+		.burger {
+			transform: translate(-5%, -50%);
+			.line {
+				margin-bottom: 1%;
+				border-bottom: 2px solid #bbb;
+				width: 5%;
+			}
+		}
+	}
+}

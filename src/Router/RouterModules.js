@@ -1,12 +1,9 @@
 const _modules = {
- 
-
-    Home: () => import('../js/Home.js'),
-    About: () => import('../js/About.js'),
-    Projects: () => import('../js/Projects.js'),
-    
-    Resume: () => import('../js/Resume.js'),
-    SignUp:()=>import ('../js/Login/SignUp.js')
+     
+    About: () => import('../Components/About/About.js'),
+    Projects: () => import('../Components/Projects/Projects.js'),
+    Resume: () => import('../Components/Resume/Resume.js'),
+    SignUp:()=>import ('../Components/Login/SignUp.js')
   };
    
   export default class Router {

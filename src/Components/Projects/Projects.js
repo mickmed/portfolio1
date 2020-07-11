@@ -1,8 +1,9 @@
 import "../Shared/Image"
-import { qs, qsa, cecl, Image, btn } from "../Helpers/domHelper"
+import { qs, qsa, cecl, btn } from "../Helpers/domHelper"
 import { verify } from "../Services/ApiAuth.js"
 import { getTechnologies } from "../Services/ApiTech.js"
 import { Checkbox } from "../Shared/Checkbox.js"
+import { Image } from "../Shared/Image.js"
 import {
   getProjects,
   addProject,
@@ -12,7 +13,6 @@ import {
 } from "../Services/ApiProject.js"
 import { Form } from "../Shared/Form.js"
 import "./projects.scss"
-
 
 export async function Projects() {
   let mainContent = qs(".main-content")
@@ -29,8 +29,6 @@ export async function Projects() {
 
     return "blonga"
   }
-  
-
 
   res.forEach(async (e, i) => {
     let paraWrap = projects.appendChild(cecl("div", "para-wrap"))
@@ -97,23 +95,23 @@ export async function Projects() {
         await deleteProject(e.id)
         await Projects()
       })
+      let addform = projects.appendChild(Form(res[0], handleChange))
+      addform.appendChild(btn("add project", "submit", "add-project-btn"))
+      addform.addEventListener("submit", async (e) => {
+        e.preventDefault()
+        await addProject(body)
+        await Projects()
+      })
     }
   })
 
-  let x = qsa(".img")
-  console.log(document.getElementsByClassName(".img"))
-  x.forEach((el) => {
-    console.log(el.innerHeight)
-  })
+  // let x = qsa(".img")
+  // console.log(document.getElementsByClassName(".img"))
+  // x.forEach((el) => {
+  //   console.log(el.innerHeight)
+  // })
 
   // ADD PROJECT
-  let form = projects.appendChild(Form(res[0], handleChange))
-  form.appendChild(btn("add project", "submit", "add-project-btn"))
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault()
-    await addProject(body)
-    await Projects()
-  })
 
   //
 }

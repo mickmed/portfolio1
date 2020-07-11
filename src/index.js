@@ -9,6 +9,8 @@ import "./body.scss"
 
 import "./img/wave1.svg"
 import "./img/100mill8.png"
+
+import './img/trees5.png'
 import "./img/sm_my-travelogue.png"
 import "./img/sm-trees.png"
 import "./img/sm_trees-of-nyc.png"

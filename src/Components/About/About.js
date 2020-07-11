@@ -1,5 +1,5 @@
-import "../Shared/Image"
-import { qs, cecl, Image } from "../Helpers/domHelper"
+import { Image } from "../Shared/Image.js"
+import { qs, cecl } from "../Helpers/domHelper"
 import { Footer } from "../Shared/Footer.js"
 import "./about.scss"
 

@@ -55,6 +55,9 @@ export async function About() {
   })
 
   let image = Image("src/img/100mill8.png", 'punk')
+  console.log(image)
+  image.childNodes[0].childNodes[0].childNodes[0].style.height = 'auto'
+  image.style.justifyContent = 'flex-end'
 
   image.addEventListener("click", (evt) => {
     window.open(e.site_url)

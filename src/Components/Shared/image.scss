@@ -135,7 +135,7 @@
             margin: 0 0 0 10%;
             font-family: "Overpass";
             // font-size: 5vw;
-            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
             /* font-we0ight:lighter; */
             color: white;
             /* width: 50%; */
@@ -215,6 +215,7 @@
 @media only screen and (min-width: 600px) {
   .project-img{
     justify-content: flex-start;
+  
   }
   .img-wrapper{
     width:60%;

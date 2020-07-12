@@ -38,11 +38,16 @@ export const Image = (src, title, modal, site_url) => {
     if (img.height > img.width) {
       modalSpan.style.transform = "skew(-10deg) translateX(-30%)"
       modalSpan.style.width = '60%'
-      h2.style.transform = "skew(10deg) translate(15%)"
+      h2.style.transform = "skew(10deg) translate(1%)"
       console.log(window.innerWidth)
-      if(window.innerWidth > 600){
+      window.addEventListener('resize', ()=>{
+          if(window.innerWidth > 600){
         imgWrapper.style.width = '40%'
+      }else{
+        imgWrapper.style.width = '70%'
       }
+      })
+    
       // imgWrapper.style.width = '40%'
       // h2.style.
     }

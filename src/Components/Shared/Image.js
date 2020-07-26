@@ -35,39 +35,25 @@ export const Image = (src, title, modal, site_url) => {
     modal.childNodes[0].childNodes[0].innerText = title
 
     console.log("projecttitle", h2)
-    if (img.height > img.width) {
-      modalSpan.style.transform = "skew(-10deg) translateX(-30%)"
-      modalSpan.style.width = '60%'
-      h2.style.transform = "skew(10deg) translate(1%)"
-      console.log(window.innerWidth)
-      window.addEventListener('resize', ()=>{
-          if(window.innerWidth > 600){
-        imgWrapper.style.width = '40%'
-      }else{
-        imgWrapper.style.width = '70%'
-      }
-      })
+    // if (img.height > img.width) {
+    //   modalSpan.style.transform = "skew(-10deg) translateX(-30%)"
+    //   modalSpan.style.width = '60%'
+    //   h2.style.transform = "skew(10deg) translate(1%)"
+    //   console.log(window.innerWidth)
+    //   window.addEventListener('resize', ()=>{
+    //       if(window.innerWidth > 600){
+    //     imgWrapper.style.width = '40%'
+    //   }else{
+    //     imgWrapper.style.width = '70%'
+    //   }
+    //   })
     
-      // imgWrapper.style.width = '40%'
-      // h2.style.
-    }
-    let linkModal = cecl("div", "link-modal", imgWrapper)
-    imgWrapper.firstChild.appendChild(linkModal)
+    //   // imgWrapper.style.width = '40%'
+    //   // h2.style.
+    // }
+    
 
-    let code = cecl("button", "git-link")
-    let site = cecl("button", "site-link")
-    code.innerText = "code"
-    site.innerText = "site"
-
-    linkModal.appendChild(code)
-    linkModal.appendChild(site)
-    // console.log(code, site)
-    code.addEventListener("click", (evt) => {
-      window.open("https://github.com/mickmed", "_blank")
-    })
-    site.addEventListener("click", (evt) => {
-      window.open(site_url, "_blank")
-    })
+  
 
     // linkModalMore.addEventListener("click", async evt => {
     //   let res = await showSingleItemm(evt, e, "projects");

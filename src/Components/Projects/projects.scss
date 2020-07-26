@@ -3,25 +3,26 @@
 .projects {
   display: flex;
   flex-direction:column;
-  margin: 1% 1%;
+  align-items:center;
+  // margin: 1% 1%;
   border-radius: 5px;
-  padding-top: 1% 0;
-  height: 90%;
+  // padding-top: 1% 0;
+
   overflow-y: scroll;
   scrollbar-width: none;
+  height:80%;
   /* background-image: linear-gradient(rgba(255, 255, 255, 1), rgb(252, 245, 236),rgba(252, 215, 174, 0.932)); */
   // background-image: linear-gradient(rgba(255, 255, 255, 0.233), rgba(255, 255, 255, .95),rgba(241, 240, 240, 0.95));
   /* font-family:arial; */
 
   .para-wrap {
     position: relative;
-    margin: 1% auto 5%;
+    // margin: 1% auto 5%;
     display: flex;
     flex-direction: column;
     // background:rgb(252, 252, 241);
 
-    width: 100%;
-
+    
     
    
   }
@@ -31,17 +32,15 @@
 }
 
 @media only screen and (min-width: 600px) {
-  .project {
-    margin-top: 3%;
-    font-size: 1.2vw;
-
+  .projects{
+   
+    
+   
     .para-wrap {
       .project-img {
-        margin-top: 5%;
+      
 
-        .img-wrapper {
-          width: 60%;
-        }
+        
       }
     }
   }

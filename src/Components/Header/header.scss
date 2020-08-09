@@ -1,10 +1,16 @@
 .header {
-
     // width: 100%;
     position: relative;
     z-index: 2;
     display: flex;
     justify-content: space-between;
+    font-size: 72px;
+    background: -webkit-linear-gradient(360deg, rgba(197, 157, 47, 1), rgba(250, 239, 230, .5));
+    background: -webkit-linear-gradient(360deg, rgba(224, 222, 216, 0.9), rgba(250, 239, 230, .5));
+
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
     .name-plate,
     .occupation {
@@ -16,7 +22,8 @@
 
     .name-plate {
         text-decoration: none;
-        font-size: 7vw;color:white;
+        font-size: 7vw;
+        color: white;
     }
 
     .cross {
@@ -32,12 +39,11 @@
     }
 
     @media only screen and (min-width: 600px) {
-        
-        .name-plate{
-            font-size:3vw;
+        background: -webkit-linear-gradient(360deg, rgb(197, 157, 47), rgb(250, 239, 230));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        .name-plate {
+            font-size: 4vw;
         }
-       
-       
-    
     }
 }

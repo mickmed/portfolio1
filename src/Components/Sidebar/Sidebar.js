@@ -4,6 +4,7 @@ import { Navbar } from "../Navbar/Navbar.js"
 
 import "./sidebar.scss"
 
+
 // import { waveSVG } from "../waveSVG.js"
 
 export const Sidebar = () => {

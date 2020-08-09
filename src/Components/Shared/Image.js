@@ -6,7 +6,7 @@ export const Image = (src, title, modal, site_url) => {
 
   let imgWrapper = cecl("div", "img-wrapper")
   projectImg.appendChild(imgWrapper)
-  let div = cecl("div", "div")
+  let div = cecl("div", "inner-img-wrap")
   imgWrapper.appendChild(div)
   // imgWrapper.style.transform = "skew(40deg) translateX(20%)"
   // let count = 40
@@ -21,11 +21,11 @@ export const Image = (src, title, modal, site_url) => {
   let img = div.appendChild(cecl("img", "img"))
   img.src = src
 
-  console.log(img.height, img.width)
-  let imgHeight = img.height > img.width ? "50%" : "100%"
-  console.log("ig", imgHeight)
-  imgWrapper.style.height = imgHeight
-  // img.style.height = imgHeight
+  // console.log(img.height, img.width)
+  // // let imgHeight = img.height > img.width ? "50%" : "100%"
+  // console.log("ig", imgHeight)
+  // imgWrapper.style.height = imgHeight
+  // // img.style.height = imgHeight
 
   if (modal === true) {
     let modal = div.appendChild(cecl("div", "modal"))

@@ -13,15 +13,15 @@ import {
 } from "../Services/ApiProject.js"
 import { Form } from "../Shared/Form.js"
 import "./projects.scss"
-import "../../img/trees5.png"
-import "../../img/sm_my-travelogue.png"
-import "../../img/sm-trees.png"
-import "../../img/sm_trees-of-nyc.png"
-import "../../img/trees-mobile.png"
-import "../../img/sm_math-game.png"
-import "../../img/nyc-trees.png"
-import "../../img/nyc-trees1.png"
-import "../../img/math-game.png"
+// import "../../img/trees5.png"
+// import "../../img/sm_my-travelogue.png"
+// import "../../img/sm-trees.png"
+// import "../../img/sm_trees-of-nyc.png"
+// import "../../img/trees-mobile.png"
+// import "../../img/sm_math-game.png"
+// import "../../img/nyc-trees.png"
+// import "../../img/nyc-trees1.png"
+// import "../../img/math-game.png"
 export async function Projects() {
   let mainContent = qs(".main-content")
   while (mainContent.childNodes.length > 2) {
@@ -40,61 +40,77 @@ export async function Projects() {
     let image = paraWrap.appendChild(
       Image(`src/img/${e.img_url}`, e.name, true, e.site_url)
     )
-    let sub = {subtitle:e.subtitle}
-    let hover = paraWrap.addEventListener("click", async () => {
-      let i = 0
-      let linkModal = cecl("div", "link-modal")
+    let sub = { subtitle: e.subtitle }
 
-      let linkModalAll = document.querySelectorAll(".link-modal")
-      linkModalAll !== 0 && linkModalAll.forEach((lm) => lm.remove())
+    let z = "false"
 
-      paraWrap.firstChild.firstChild.appendChild(linkModal)
+    console.log(window.innerWidth)
 
+    // ****IMAGE CLICK FOR MOBILE**** //
+    // let imgWrapper = paraWrap.firstChild.firstChild
 
-      let linkModalIcons = linkModal.appendChild(
-        cecl("div", "link-modal-icons")
-      )
-      linkModalIcons.innerHTML =
-        '<i class="fab fa-github"></i><i class="fas fa-home fa-fw"></i>'
-      const typing = async (str) => {
-       
-        if (i < e.subtitle.length) {
-          linkModal.innerHTML += e.subtitle.charAt(i)
-          linkModal.style.opacity = i/e.subtitle.length
-          console.log(linkModalIcons.children)
-          // linkModalIcons.children.forEach(c=> c.style.opacity = i/e.subtitle.length)
-          for(let j=0;j<linkModalIcons.length;j++){
-           linkModalIcons[j].style.opacity = i/e.subtitle.length
+    let linkModal = cecl("div", "link-modal")
+    let imgWrapper = qsa(".img-wrapper")
+    let innerImgWrap = qsa(".inner-img-wrap")
 
-          }
-          i++
-          await setTimeout(typing, 25)
+    if (window.innerWidth < 600) {
+      imgWrapper[i].addEventListener("click", async () => {
+        if (z === "true") {
+          z = "false"
+
+          innerImgWrap[i].classList.add("close-curtain")
+          innerImgWrap[i].classList.remove("open-curtain")
+         
+
+          imgWrapper[i].lastChild.remove()
+        } else if (z === "false") {
+          z = "true"
+
+          innerImgWrap[i].classList.add("open-curtain")
+          innerImgWrap[i].classList.remove("close-curtain")
+
+          imgWrapper[i].appendChild(linkModal)
         }
-      }
+        console.log(z)
+        console.log(innerImgWrap[i])
+      })
 
-      let s = await typing()
+      //   let linkModalIcons = linkModal.appendChild(
+      //     cecl("div", "link-modal-icons")
+      //   )
+      //   linkModalIcons.innerHTML =
+      //     '<i class="fab fa-github"></i><i class="fas fa-home fa-fw"></i>'
+      //   const typing = async (str) => {
+      //     if (i < e.subtitle.length) {
+      //       linkModal.innerHTML += e.subtitle.charAt(i)
+      //       linkModal.style.opacity = i / e.subtitle.length
 
-     
+      //       for (let j = 0; j < linkModalIcons.length; j++) {
+      //         linkModalIcons[j].style.opacity = i / e.subtitle.length
+      //       }
+      //       i++
+      //       await setTimeout(typing, 25)
+      //     }
+      //   }
 
-      // paraWrap.style.background = "red"
-      // let code = cecl("button", "git-link")
-      // let site = cecl("button", "site-link")
-      // code.innerText = "code"
-      // site.innerText = "site"
-      // linkModal.appendChild(code)
-      // linkModal.appendChild(site)
-      // // console.log(code, site)
-      // code.addEventListener("click", (evt) => {
-      //   window.open("https://github.com/mickmed", "_blank")
-      // })
-      // site.addEventListener("click", (evt) => {
-      //   window.open(site_url, "_blank")
-      // })
-    })
+      //   let s = await typing()
+    } else {
+      // ****IMAGE HOVER FOR TABLET AND DESKTOP****//
+      let hover = paraWrap.addEventListener("mouseover", async () => {
+        qs(".inner-img-wrap").classList.add("inner-img-wrap-hover")
 
-    let hoverOut = () => {
+        paraWrap.appendChild(linkModal)
+      })
 
+      let hoverOut = paraWrap.addEventListener("mouseout", () => {
+        let x = qs(".link-modal")
+
+        console.log(x)
+        x && paraWrap.lastChild.remove()
+      })
     }
+
+    ///If Logged In///
     if (await verify()) {
       let form = paraWrap.appendChild(Form(e, handleChange))
       form.appendChild(btn("update project", "submit", "update-btn"))

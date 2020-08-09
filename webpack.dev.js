@@ -12,5 +12,23 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, "dist"),
     publicPath: '/'
   },
+  module: {
+    rules: [
+     
+
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "/src/img",
+            },
+          },
+        ],
+      },
+    ],
+  },
 
 });

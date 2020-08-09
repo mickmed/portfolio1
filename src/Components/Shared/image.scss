@@ -6,8 +6,6 @@
   margin: 5% 0 10%;
   transform: translateX(-5%);
   .img-wrapper {
-    /* height:100%; */
-
     position: relative;
     padding: 3% 5%;
     width: 100%;
@@ -27,14 +25,17 @@
       border: 2px solid transparent;
       border-radius: 0 0 0;
     }
-    &:hover:before {
-      animation: animate-project 1.5s linear forwards;
+    .img-wrapper-animate {
+      animation: animate-img-wrapper 1.5s linear forwards;
     }
-    @keyframes animate-project {
+    &:hover:before {
+      // animation: animate-img-wrapper 1.5s linear forwards;
+    }
+    @keyframes animate-img-wrapper {
       0% {
         width: 0;
         height: 0;
-        border-top-color: #0099ff;
+        border-top-color: rgb(41, 17, 17);
         border-right-color: transparent;
         border-bottom-color: transparent;
         border-left-color: transparent;
@@ -42,23 +43,24 @@
       50% {
         width: 100%;
         height: 0;
-        border-top-color: #0099ff;
-        border-right-color: #0099ff;
+        border-top-color: rgb(41, 17, 17);
+        border-right-color: rgb(41, 17, 17);
         border-bottom-color: transparent;
         border-left-color: transparent;
       }
       100% {
         width: 100%;
         height: 100%;
-        border-top-color: #0099ff;
-        border-right-color: #0099ff;
+        border-top-color: rgb(41, 17, 17);
+        border-right-color: rgb(41, 17, 17);
         border-bottom-color: transparent;
         border-left-color: transparent;
       }
     }
-    div {
+    .inner-img-wrap {
       position: relative;
       box-sizing: border-box;
+
       .img {
         width: 100%;
         height: 100%;
@@ -111,6 +113,8 @@
           padding: 5%;
           z-index: 3;
           background-image: linear-gradient(to right, rgba(209, 21, 21, 1), rgba(223, 11, 11, 1));
+          background: rgb(223, 124, 12);
+          background: #336b87;
           // background:blue;
           transform: skew(-10deg, 0deg) translateX(-12%);
           h2.project-title {
@@ -128,49 +132,12 @@
         }
       }
     }
-    .link-modal {
-      position: relative;
-      padding: 5%;
-      font-family: "Overpass";
-      font-style: italic;
-      font-size: 3vw;
-      // height: 100%;
-      // width: 100%;
-      box-shadow: 1px 1px 5px rgb(105, 6, 6);
-      // // margin: 0 auto;
-      // border: 1px solid green;
-      background: lightgrey;
-      opacity: 0;
-      // z-index: 100;
-
-      .link-modal-icons {
-        position: absolute;
-        display:flex;
-        justify-content: center;
-        right: 0;
-        bottom: 0;
-        width: 20%;
-        margin-bottom:1%;
-        .svg-inline--fa {
-          margin:5%;
-        }
-      }
-    }
-    // &:hover .link-modal {
-    //   // display:block;
-    //   animation: linkModal 1.5s linear forwards;
-    // }
-    // @keyframes linkModal {
-    //   from {
-    //     opacity: 0.2;
-    //   }
-    //   to {
-    //     opacity: 1;
-    //   }
-    // }
   }
-  .div:hover .modal {
+  .open-curtain:hover .modal {
     animation: open-curtain 1s linear forwards;
+  }
+  .close-curtain:hover .modal {
+    animation: close-curtain 1s linear forwards;
   }
   @keyframes open-curtain {
     0% {

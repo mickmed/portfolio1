@@ -46,7 +46,7 @@ export async function Projects() {
 
     console.log(window.innerWidth)
 
-    // ****IMAGE CLICK FOR MOBILE**** //
+    // ****IMAGE CLICK FOR MOBchildNodes[0]childNodes[0]ILE**** //
     // let imgWrapper = paraWrap.firstChild.firstChild
 
     let linkModal = cecl("div", "link-modal")
@@ -72,7 +72,7 @@ export async function Projects() {
           imgWrapper[i].appendChild(linkModal)
         }
         console.log(z)
-        console.log(innerImgWrap[i])
+        console.log(innerImgWrap[i].childNodes[1])
       })
 
       //   let linkModalIcons = linkModal.appendChild(

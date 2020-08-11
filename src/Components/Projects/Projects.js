@@ -1,4 +1,5 @@
 import "../Shared/Image"
+import Footer from '../Shared/Footer.js'
 import { qs, qsa, cecl, btn } from "../Helpers/domHelper"
 import { verify } from "../Services/ApiAuth.js"
 import { getTechnologies } from "../Services/ApiTech.js"
@@ -13,43 +14,36 @@ import {
 } from "../Services/ApiProject.js"
 import { Form } from "../Shared/Form.js"
 import "./projects.scss"
-// import "../../img/trees5.png"
-// import "../../img/sm_my-travelogue.png"
-// import "../../img/sm-trees.png"
-// import "../../img/sm_trees-of-nyc.png"
-// import "../../img/trees-mobile.png"
-// import "../../img/sm_math-game.png"
-// import "../../img/nyc-trees.png"
-// import "../../img/nyc-trees1.png"
-// import "../../img/math-game.png"
+
 export async function Projects() {
   let mainContent = qs(".main-content")
-  while (mainContent.childNodes.length > 2) {
-    mainContent.removeChild(mainContent.lastChild)
-  }
-  let projects = mainContent.appendChild(cecl("div", "projects"))
+  let projects = qs('.projects')
+  // while (mainContent.childNodes.length > 2) {
+  //   mainContent.removeChild(mainContent.lastChild)
+  // }
+  // let projects = mainContent.appendChild(cecl("div", "projects"))
   let res = await getProjects()
-  console.log(res)
   let body = {}
   let handleChange = (e) => {
     body[e.target.name] = e.target.value
   }
 
   res.forEach(async (e, i) => {
+
+    console.log(e.technologies.icon_url)
     let paraWrap = projects.appendChild(cecl("div", "para-wrap"))
     let image = paraWrap.appendChild(
       Image(`src/img/${e.img_url}`, e.name, true, e.site_url)
     )
-    let sub = { subtitle: e.subtitle }
-
     let z = "false"
 
-    console.log(window.innerWidth)
-
-    // ****IMAGE CLICK FOR MOBchildNodes[0]childNodes[0]ILE**** //
+    // ****IMAGE CLICK FOR MOBILE ADD LINK MODAL**** //
     // let imgWrapper = paraWrap.firstChild.firstChild
-
     let linkModal = cecl("div", "link-modal")
+    linkModal.innerText = e.subtitle
+    let img = cecl('img', 'link-modal-tech-image')
+    img.src = `src/img/${e.technologies.icon_url}`
+    linkModal.appendChild(img)
     let imgWrapper = qsa(".img-wrapper")
     let innerImgWrap = qsa(".inner-img-wrap")
 
@@ -57,22 +51,23 @@ export async function Projects() {
       imgWrapper[i].addEventListener("click", async () => {
         if (z === "true") {
           z = "false"
-
           innerImgWrap[i].classList.add("close-curtain")
           innerImgWrap[i].classList.remove("open-curtain")
-         
-
           imgWrapper[i].lastChild.remove()
         } else if (z === "false") {
           z = "true"
-
           innerImgWrap[i].classList.add("open-curtain")
           innerImgWrap[i].classList.remove("close-curtain")
-
           imgWrapper[i].appendChild(linkModal)
+
+          // let styleElem = document.head.appendChild(document.createElement("style"));
+          // styleElem.innerHTML = ".img-wrapper:before {animation: animate-img-wrapper 1.5s linear forwards;}"
+          let iw = imgWrapper[i].style
+          iw.setProperty(
+            "--animation",
+            "animate-img-wrapper 1.5s linear forwards"
+          )
         }
-        console.log(z)
-        console.log(innerImgWrap[i].childNodes[1])
       })
 
       //   let linkModalIcons = linkModal.appendChild(
@@ -166,4 +161,7 @@ export async function Projects() {
       })
     }
   })
+  console.log(Footer())
+  let footer = projects.appendChild(Footer())
+
 }

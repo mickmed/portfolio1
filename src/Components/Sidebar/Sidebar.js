@@ -4,15 +4,11 @@ import { Navbar } from "../Navbar/Navbar.js"
 
 import "./sidebar.scss"
 
-
 // import { waveSVG } from "../waveSVG.js"
 
 export const Sidebar = () => {
   const sidebar = cecl("div", "sidebar")
   sidebar.appendChild(Header())
-
- 
-
 
   sidebar.appendChild(Navbar())
 

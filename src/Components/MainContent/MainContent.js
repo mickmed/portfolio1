@@ -13,6 +13,11 @@ export const MainContent = () => {
     mainContent.appendChild(Burger())
     console.log(MailTo())
     mainContent.appendChild(MailTo())
+
+    while (mainContent.childNodes.length > 2) {
+        mainContent.removeChild(mainContent.lastChild)
+      }
+      let projects = mainContent.appendChild(cecl("div", "projects"))
    
     // console.log(MiniNav())
     return mainContent

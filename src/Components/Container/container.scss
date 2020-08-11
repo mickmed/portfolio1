@@ -1,51 +1,34 @@
-
-$header-img: url('../img/100mill8.png');
-$background: url('../../img/canvas.png'); 
-
-
+$header-img: url("../img/100mill8.png");
+$background: url("../../img/canvas.png");
 .container {
-  /* border: 2px solid red; */
-  /* background:green; */
   height: 100vh;
-  /* width:100vw; */
   display: flex;
-  margin-top: 3%;
-  width: 95%;
-  display: flex;
+  width: 96%;
   justify-content: space-between;
-
-  // max-width: 1400px;
-  margin: 0 auto;
-  // border-radius: 0 30px 0 0;
+  margin: 3% auto;
   position: fixed;
-  margin: 3% 5% 0 0;
-  // background: url('../../img/canvas-white.jpg');
-  z-index:899;
+  z-index: 20;
+  &:before {
+    // margin: 5% 80% 0 0;
+    margin: 0 auto;
+    display: inline;
+    content: "";
+    position: absolute;
+    // top: 0;
+    // left: -10;
+    // max-width: 1200px;
+    width: 100%;
+    // height: 0;
+    background: transparent;
+    border: 1px solid transparent;
+    // border-radius: 0 180px 0 0;
+    animation: animate 2s linear forwards;
+  }
 }
-
-.container:before {
-  margin: 5% 80% 0 0;
-  margin: 0 auto;
-  display: inline;
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -10;
-  // max-width: 1200px;
-  width: 100%;
-  height: 0;
-  background: transparent;
-  border: 1px solid transparent;
-  // border-radius: 0 180px 0 0;
-
-  animation: animate 2s linear forwards;
-}
-
 @keyframes animate {
   0% {
     width: 0;
     height: 0;
-
     border-top-color: rgb(41, 17, 17);
     border-right-color: transparent;
     border-bottom-color: transparent;
@@ -62,8 +45,8 @@ $background: url('../../img/canvas.png');
   100% {
     width: 100%;
     height: 100%;
-    border-top-color:  rgb(41, 17, 17);
-    border-right-color:  rgb(41, 17, 17);
+    border-top-color: rgb(41, 17, 17);
+    border-right-color: rgb(41, 17, 17);
     /* #e01414 */
     border-bottom-color: transparent;
     border-left-color: transparent;

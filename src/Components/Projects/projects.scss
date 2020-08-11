@@ -1,14 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Overpass:100,300,400|");
 .projects {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  // margin: 1% 1%;
-  border-radius: 5px;
-  // padding-top: 1% 0;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  height: 80%;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // // margin: 1% 1%;
+  // border-radius: 5px;
+  // margin-top: 5% 0;
+  // overflow-y: scroll;
+  // scrollbar-width: none;
+  // height: 80%;
+  // // width:80%;
+  // margin:0 auto;
   /* background-image: linear-gradient(rgba(255, 255, 255, 1), rgb(252, 245, 236),rgba(252, 215, 174, 0.932)); */
   // background-image: linear-gradient(rgba(255, 255, 255, 0.233), rgba(255, 255, 255, .95),rgba(241, 240, 240, 0.95));
   /* font-family:arial; */
@@ -18,9 +20,10 @@
     // display: flex;
     // flex-direction: column;
     // // background:rgb(252, 252, 241);
+    margin:10%;
     // display: flex;
     flex-direction: row;
-    border: 1px solid;
+    // border: 1px solid;
     .link-modal {
       position: relative;
       padding: 5%;
@@ -29,10 +32,10 @@
       font-size: 3vw;
       height: 10%;
       // width: 100%;
-      box-shadow: 1px 1px 5px rgb(105, 6, 6);
+      // box-shadow: 1px 1px 5px rgb(105, 6, 6);
       // // margin: 0 auto;
       // border: 5px solid green;
-      background: lightgrey;
+      // background: lightgrey;
       opacity: 1;
       // z-index: 100;
       .link-modal-icons {

@@ -24,6 +24,9 @@
       background: transparent;
       border: 2px solid transparent;
       border-radius: 0 0 0;
+      // animation: animate-img-wrapper 1.5s linear forwards;
+      animation: let(--animation)
+
     }
     .img-wrapper-animate {
       animation: animate-img-wrapper 1.5s linear forwards;
@@ -140,6 +143,8 @@
   .close-curtain:hover .modal {
     animation: close-curtain 1s linear forwards;
   }
+
+  
   @keyframes open-curtain {
     0% {
       left: 5%;

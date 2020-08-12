@@ -24,13 +24,13 @@
       border: 2px solid transparent;
       border-radius: 0 0 0;
       // animation: animate-img-wrapper 1.5s linear forwards;
-      animation: let(--animation);
+
     }
     .img-wrapper-animate {
       animation: animate-img-wrapper 1.5s linear forwards;
     }
     &:hover:before {
-      // animation: animate-img-wrapper 1.5s linear forwards;
+      animation: animate-img-wrapper 1.5s linear forwards;
     }
     @keyframes animate-img-wrapper {
       0% {
@@ -163,8 +163,9 @@
 @media only screen and (min-width: 600px) {
   .project-img {
     justify-content: flex-start;
+    margin-bottom:5%;
     .img-wrapper {
-      width: 60%;
+      width: 80%;
       div {
         .modal {
           .modal-span {

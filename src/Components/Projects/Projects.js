@@ -68,7 +68,7 @@ export async function Projects() {
 
     // ****IMAGE CLICK FOR MOBILE ADD LINK MODAL**** //
 
-    if (window.innerWidth < 600) {
+    if (window.innerWidth < 4600) {
       imgWrapper[i].addEventListener("click", async () => {
         if (z === "true") {
           z = "false"
@@ -110,18 +110,19 @@ export async function Projects() {
       //   let s = await typing()
     } else {
       // ****IMAGE HOVER FOR TABLET AND DESKTOP****//
-      let hover = paraWrap.addEventListener("mouseover", async () => {
+      let hover = paraWrap.addEventListener("click", async () => {
         qs(".inner-img-wrap").classList.add("inner-img-wrap-hover")
 
         paraWrap.appendChild(linkModal)
       })
 
       let hoverOut = paraWrap.addEventListener("mouseout", () => {
-        let x = qs(".link-modal")
+        let linkModal = qs(".link-modal")
 
-        console.log(x)
-        x && paraWrap.lastChild.remove()
+        linkModal && paraWrap.lastChild.remove()
       })
+      innerImgWrap[i].appendChild(linkModalIcons)
+
     }
 
     ///If Logged In///

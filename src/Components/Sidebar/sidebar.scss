@@ -16,8 +16,7 @@ $header-img: image-url("floorboards.jpg", false, false);
     // background: rgb(41, 17, 17);
     // background: #763626;
     // background: #0099ff;
-    // background-image: url("https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
-    background-image:url('../../img/floorboards-reverse.jpg');
+    background-image:url('https://i.imgur.com/JalDJN6.jpg');
     // background-size:contain;
     // background-position: right;
 
@@ -52,8 +51,10 @@ $header-img: image-url("floorboards.jpg", false, false);
     }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 900px) {
     .sidebar {
         width: 10%;
+    background-image: url("https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+
     }
 }

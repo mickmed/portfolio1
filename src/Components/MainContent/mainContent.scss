@@ -44,9 +44,9 @@
 		margin: 0 auto;
 	}
 	@media only screen and (min-width: 600px) {
-		width: 85%;
+		// width: 85%;
 		.burger {
-			
+			margin-bottom:0;
 			.line {
 				margin-bottom: 1%;
 				border-bottom: 2px solid #bbb;

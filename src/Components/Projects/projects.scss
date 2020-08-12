@@ -1,41 +1,38 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Overpass:100,300,400|");
 
-  .project-wrap {
+.project-wrap {
+  position: relative;
+  margin: 3% 10%;
+  flex-direction: row;
+  .link-modal {
     position: relative;
-    margin:3% 10%;
-    flex-direction: row;
-    .link-modal {
-      position: relative;
-      padding: 5%;
-      font-family: "Overpass";
-      font-style: italic;
-      font-size: 3vw;
-      height: 10%;
-      opacity: 1;
-  
-      .tech-icons{
-        margin-top:5%;
-        width:100%;
-        display:flex;
-        justify-content: center;
-        .tech-icon{
-          width:20%;
-          // padding:0 2%;
-        }
-      }
-    }
-  }
-  .delete-btn {
-    width: 80%;
-  }
-@media only screen and (min-width: 600px) {
-  .projects {
-    .para-wrap {
-      .project-img {
+    padding: 5%;
+    font-family: "Overpass";
+    font-style: italic;
+    font-size: 3vw;
+    height: 10%;
+    opacity: 1;
+
+    .tech-icons {
+      margin-top: 5%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      .tech-icon {
+        width: 20%;
+        // padding:0 2%;
       }
     }
   }
 }
-.projects::-webkit-scrollbar {
-  display: none;
+.delete-btn {
+  width: 80%;
+}
+@media only screen and (min-width: 600px) {
+  .project-wrap{
+    .link-modal{
+      // width:60%;
+      padding:5%;
+    }
+  }
 }

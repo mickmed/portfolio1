@@ -24,26 +24,30 @@ export async function About() {
   cspan.style.cursor = "pointer"
   let oneHunMil = qs(".text .onehunmill")
   oneHunMil.style.color = "blue"
+  oneHunMil.style.cursor = "pointer"
   cspan.style.cursor = "pointer"
   ga.addEventListener("click", () => {
-    window.open(
-      "_blank"
-    )
+    window.open('https://generalassemb.ly/instructors/mick-roth/23105')
+      target = "_blank"
+    
   })
   cspan.addEventListener("click", () => {
-    window.open(
-      "_blank"
-    )
+    window.open('https://www.c-span.org/video/?469449-1/2020-elections-nonvoters')
+    target = "_blank"
   })
   oneHunMil.addEventListener("click", () => {
+    window.open('https://the100million.org/')
+    target = "_blank"
+    
   })
   let aboutImageWrapper = cecl('div', 'about-image-wrapper')
   let image = cecl('img', 'about-image')
   image.src = "src/img/100mill8.png"
   image.addEventListener("click", (evt) => {
-    window.open(e.site_url)
+    window.open('https://the100million.org/')
     target = "_blank"
   })
+  image.style.cursor = "pointer"
   aboutImageWrapper.appendChild(image)
   mainContentScrollable.appendChild(aboutImageWrapper)
   let description1 = mainContentScrollable.appendChild(cecl("div", "text"))

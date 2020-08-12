@@ -74,6 +74,8 @@ export function Navbar(parentDiv, data, type = "about") {
 
           nav.children[i].firstChild.style.color = "white"
           nav.children[i].firstChild.style.fontWeight = "400"
+          nav.children[i].firstChild.style.cursor = "pointer"
+
         }
         e.target.style.color = "#ffb566"
         e.target.style.textShadow = '1px 1px black'

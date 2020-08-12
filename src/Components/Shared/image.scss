@@ -24,7 +24,6 @@
       border: 2px solid transparent;
       border-radius: 0 0 0;
       // animation: animate-img-wrapper 1.5s linear forwards;
-
     }
     .img-wrapper-animate {
       animation: animate-img-wrapper 1.5s linear forwards;
@@ -163,7 +162,7 @@
 @media only screen and (min-width: 600px) {
   .project-img {
     justify-content: flex-start;
-    margin-bottom:5%;
+    margin-bottom: 5%;
     .img-wrapper {
       width: 80%;
       div {
@@ -179,12 +178,6 @@
     }
   }
 }
-@media only screen and (min-width: 900px) {
-  .project-title {
-    font-size: 4.5vw;
-    color: green;
-  }
-}
 
 // .fa-github,
 .fa-home {
@@ -192,10 +185,10 @@
   color: grey;
   opacity: 1;
   background: white;
-  border-radius:5px;
-  border:2px solid rgb(32, 30, 30);
-  z-index:20;
-  padding:1%;
+  border-radius: 5px;
+  border: 2px solid rgb(32, 30, 30);
+  z-index: 20;
+  padding: 1%;
 }
 
 .link-modal-icons {
@@ -217,6 +210,20 @@
     // transform: translate(-10%);
     background: white;
     font-size: 200%;
-    height:25%;
+    height: 25%;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .project-title {
+    font-size: 4.5vw;
+    color: green;
+  }
+  .link-modal-icons {
+    .fa-home {
+      font-size: 400%;
+      height: 15%;
+      border-radius:10px;
+    }
   }
 }

@@ -3,7 +3,7 @@
 	position: relative;
 	top: 5;
 	// margin-left: 6%;
-	// width: 892%;
+	width: 89%;
 	// height: 90%;
 	scrollbar-width: none;
 
@@ -40,8 +40,11 @@
 		overflow-y: scroll;
 		scrollbar-width: none;
 		height: 80%;
-		// width:80%;
+		width:90%;
 		margin: 0 auto;
+	}
+	::-webkit-scrollbar {
+		display: none;
 	}
 	@media only screen and (min-width: 600px) {
 		// width: 85%;

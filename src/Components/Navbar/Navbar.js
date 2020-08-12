@@ -75,7 +75,8 @@ export function Navbar(parentDiv, data, type = "about") {
           nav.children[i].firstChild.style.color = "white"
           nav.children[i].firstChild.style.fontWeight = "400"
         }
-        e.target.style.color = "yellow"
+        e.target.style.color = "#ffb566"
+        e.target.style.textShadow = '1px 1px black'
         e.target.style.fontWeight = "600"
 
         router.navigate(Object.keys(array[i])[0])

@@ -20,6 +20,8 @@ module.exports = {
       filename: "[name].css",
     }),
   ],
+
+
   module: {
     rules: [
       {

@@ -1,5 +1,4 @@
 import "../Shared/Image"
-import Footer from '../Shared/Footer.js'
 import { qs, qsa, cecl, btn } from "../Helpers/domHelper"
 import { verify } from "../Services/ApiAuth.js"
 import { getTechnologies } from "../Services/ApiTech.js"
@@ -16,36 +15,58 @@ import { Form } from "../Shared/Form.js"
 import "./projects.scss"
 
 export async function Projects() {
-  let mainContent = qs(".main-content")
-  let projects = qs('.projects')
-  // while (mainContent.childNodes.length > 2) {
-  //   mainContent.removeChild(mainContent.lastChild)
-  // }
-  // let projects = mainContent.appendChild(cecl("div", "projects"))
+  
+
+  let mainContentScrollable = qs(".main-content-scrollable")
+ 
+  while (mainContentScrollable.childNodes.length) {
+    mainContentScrollable.removeChild(mainContentScrollable.lastChild)
+  }
+  
+
   let res = await getProjects()
   let body = {}
   let handleChange = (e) => {
     body[e.target.name] = e.target.value
   }
+  
+  
 
   res.forEach(async (e, i) => {
-
-    console.log(e.technologies.icon_url)
-    let paraWrap = projects.appendChild(cecl("div", "para-wrap"))
+  
+    let paraWrap = mainContentScrollable.appendChild(cecl("div", "project-wrap"))
     let image = paraWrap.appendChild(
       Image(`src/img/${e.img_url}`, e.name, true, e.site_url)
     )
     let z = "false"
+   
 
-    // ****IMAGE CLICK FOR MOBILE ADD LINK MODAL**** //
-    // let imgWrapper = paraWrap.firstChild.firstChild
+  
     let linkModal = cecl("div", "link-modal")
     linkModal.innerText = e.subtitle
-    let img = cecl('img', 'link-modal-tech-image')
-    img.src = `src/img/${e.technologies.icon_url}`
-    linkModal.appendChild(img)
+   
     let imgWrapper = qsa(".img-wrapper")
     let innerImgWrap = qsa(".inner-img-wrap")
+
+    let techIcons = cecl('div', 'tech-icons')
+    e.technologies.forEach(icon=>{
+      let techIcon = techIcons.appendChild(cecl('img', 'tech-icon'))
+      techIcon.src = `src/img/${icon.icon_url}`
+    })
+    console.log(techIcons)
+    linkModal.appendChild(techIcons)
+
+    let linkModalIcons = linkModal.appendChild(
+      cecl("div", "link-modal-icons")
+    )
+
+
+    linkModalIcons.innerHTML =
+      `<a href=${e.site_url} target='_blank'><i class="fas fa-home fa-fw"></i></a>`
+
+
+
+    // ****IMAGE CLICK FOR MOBILE ADD LINK MODAL**** //
 
     if (window.innerWidth < 600) {
       imgWrapper[i].addEventListener("click", async () => {
@@ -67,26 +88,24 @@ export async function Projects() {
             "--animation",
             "animate-img-wrapper 1.5s linear forwards"
           )
+
+          innerImgWrap[i].appendChild(linkModalIcons)
         }
       })
 
-      //   let linkModalIcons = linkModal.appendChild(
-      //     cecl("div", "link-modal-icons")
-      //   )
-      //   linkModalIcons.innerHTML =
-      //     '<i class="fab fa-github"></i><i class="fas fa-home fa-fw"></i>'
-      //   const typing = async (str) => {
-      //     if (i < e.subtitle.length) {
-      //       linkModal.innerHTML += e.subtitle.charAt(i)
-      //       linkModal.style.opacity = i / e.subtitle.length
+        
+        // const typing = async (str) => {
+        //   if (i < e.subtitle.length) {
+        //     linkModal.innerHTML += e.subtitle.charAt(i)
+        //     linkModal.style.opacity = i / e.subtitle.length
 
-      //       for (let j = 0; j < linkModalIcons.length; j++) {
-      //         linkModalIcons[j].style.opacity = i / e.subtitle.length
-      //       }
-      //       i++
-      //       await setTimeout(typing, 25)
-      //     }
-      //   }
+        //     for (let j = 0; j < linkModalIcons.length; j++) {
+        //       linkModalIcons[j].style.opacity = i / e.subtitle.length
+        //     }
+        //     i++
+        //     await setTimeout(typing, 25)
+        //   }
+        // }
 
       //   let s = await typing()
     } else {
@@ -113,7 +132,7 @@ export async function Projects() {
       technologies.map((el) => {
         let checked
         e.technologies.forEach((pTech) => {
-          console.log(pTech.name)
+         
           if (pTech.name === el.name) {
             checked = "checked"
           }
@@ -125,7 +144,7 @@ export async function Projects() {
         label.innerHTML = el.name
         form.appendChild(label)
       })
-      console.log(e)
+      // console.log(e)
       form.addEventListener("submit", async (evt) => {
         evt.preventDefault()
         let boxes = document.getElementsByName(e.name)
@@ -133,7 +152,7 @@ export async function Projects() {
         boxes.forEach((el) => {
           el.checked && boxesArray.push(el.value)
         })
-        console.log(boxesArray)
+        // console.log(boxesArray)
         body = { ...e, ...body }
         delete body.id
         delete body.created_at
@@ -152,7 +171,7 @@ export async function Projects() {
         await deleteProject(e.id)
         await Projects()
       })
-      let addform = projects.appendChild(Form(res[0], handleChange))
+      let addform = mainContentScrollable.appendChild(Form(res[0], handleChange))
       addform.appendChild(btn("add project", "submit", "add-project-btn"))
       addform.addEventListener("submit", async (e) => {
         e.preventDefault()
@@ -161,7 +180,4 @@ export async function Projects() {
       })
     }
   })
-  console.log(Footer())
-  let footer = projects.appendChild(Footer())
-
 }

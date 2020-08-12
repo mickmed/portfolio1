@@ -13,7 +13,7 @@
         justify-content: center;
         flex-wrap: wrap;
         // overflow-y: scroll;
-        margin:5% 0;
+        margin:5% 0 0 5%;
         height: 80%;
        
         .iframe {
@@ -43,8 +43,8 @@
             .fa-linkedin {
                 color: blue;
             }
-            .fa-github {
-                color: rgb(110, 110, 110);
+            .fab.fa-github {
+                color: rgb(85,26,139);
             }
         }
         .highlight {

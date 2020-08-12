@@ -15,6 +15,8 @@ export function Resume() {
   // window.matchMedia("(min-width: 600px)").matches &&
   // document.querySelector('.sidebar').style.display === "none"
   // &&  (document.querySelector('.sidebar').style.display = "inline")
+
+
   const array = [
     {
       type: "googleDocs",
@@ -22,7 +24,6 @@ export function Resume() {
       url:
         "https://docs.google.com/document/d/1F0CtmV9ViPecK5KDHgKS2BZJiSy8QL6LS51BF2IaroI/edit",
     },
-    { type: "pdf", icon: '<i class="far fa-file-pdf"></i>', url: "" },
 
     {
       type: "linkedin",
@@ -34,16 +35,20 @@ export function Resume() {
       icon: '<i class="fab fa-github"></i>',
       url: "https://github.com/mickmed",
     },
+    { type: "pdf", icon: '<i class="far fa-file-pdf"></i>', url: "/" },
+
   ]
 
-  let mainContent = qs(".main-content")
+
+  // console.log('resume')
+  let mainContentScrollable = qs(".main-content-scrollable")
   // console.log("res maincont", mainContent.childNodes)
-  while (mainContent.childNodes.length > 2) {
-    mainContent.removeChild(mainContent.lastChild)
+  while (mainContentScrollable.childNodes.length) {
+    mainContentScrollable.removeChild(mainContentScrollable.lastChild)
   }
   // console.log("res maincont", mainContent.childNodes)
 
-  let resume = mainContent.appendChild(cecl("div", "resume"))
+  let resume = mainContentScrollable.appendChild(cecl("div", "resume"))
   let resImgWrapper = resume.appendChild(cecl("div", "res-img-wrapper"))
 
   array.forEach((opt, i) => {

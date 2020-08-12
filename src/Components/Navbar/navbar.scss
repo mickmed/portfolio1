@@ -26,7 +26,18 @@
         
     .navbar{
         div{
-            font-size:1.5vw;
+            font-size:2vw;
+        }
+    }
+   
+
+}
+
+@media only screen and (min-width: 900px) {
+        
+    .navbar{
+        div{
+            font-size:2vw;
         }
     }
    

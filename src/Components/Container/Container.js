@@ -10,8 +10,9 @@ export const Container = () => {
   const container = cecl('div', 'container')
   container.appendChild(Sidebar())
   container.appendChild(MainContent())
+
+
   
-  Router()
   
   return container
 }

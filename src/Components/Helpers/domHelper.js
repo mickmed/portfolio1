@@ -54,7 +54,7 @@ export let ce = (element_type, className, parent, obj = {}) => {
 
 export const BurgerClick = (switchBurger) => {
   //   const switchBurger = { showSidebar: true }
-  console.log(switchBurger)
+
   const mainContent = qs(".main-content")
   const sidebar = qs(".sidebar")
   if (switchBurger.showSidebar === true) {
@@ -68,9 +68,9 @@ export const BurgerClick = (switchBurger) => {
       if (count === 0) {
         clearTimeout(slider)
         switchBurger.showSidebar = false
-        console.log("changeswitch", switchBurger)
+       
       } else {
-        console.log("if true", 100 / count)
+       
         mainContent.style.width = `${-1000 / count}%`
       }
     }, 40)
@@ -79,10 +79,10 @@ export const BurgerClick = (switchBurger) => {
     let slider = setInterval(() => {
       count -= 10
       sidebar.style.transform = `translate(${count}%, 0)`
-      console.log("if false ", -count)
+      
       mainContent.style.width = `${-count}%`
       if (count === -100) {
-        console.log("if false -100", sidebar)
+        
         sidebar.style.display = "none"
         clearTimeout(slider)
         switchBurger.showSidebar = true

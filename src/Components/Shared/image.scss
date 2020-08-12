@@ -1,8 +1,7 @@
 .project-img {
   position: relative;
   width: 100%;
-  display: flex;
-  justify-content: center;
+
   margin: 5% 0 10%;
   transform: translateX(-5%);
   .img-wrapper {
@@ -25,8 +24,7 @@
       border: 2px solid transparent;
       border-radius: 0 0 0;
       // animation: animate-img-wrapper 1.5s linear forwards;
-      animation: let(--animation)
-
+      animation: let(--animation);
     }
     .img-wrapper-animate {
       animation: animate-img-wrapper 1.5s linear forwards;
@@ -144,7 +142,6 @@
     animation: close-curtain 1s linear forwards;
   }
 
-  
   @keyframes open-curtain {
     0% {
       left: 5%;
@@ -185,5 +182,40 @@
   .project-title {
     font-size: 4.5vw;
     color: green;
+  }
+}
+
+// .fa-github,
+.fa-home {
+  position: absolute;
+  color: grey;
+  opacity: 1;
+  background: white;
+  border-radius:5px;
+  border:2px solid rgb(32, 30, 30);
+  z-index:20;
+  padding:1%;
+}
+
+.link-modal-icons {
+  // background-color:rgba(201, 201, 223, 0.4);
+  // position:absolute;
+  // top:5%;
+  // left:2%;
+  // height:90%;
+  // width:40%;
+  // .fa-github {
+  //   top: 5%;
+  //   left: 5%;
+  //   background: white;
+  //   font-size: 300%;
+  // }
+  .fa-home {
+    bottom: 9%;
+    left: 5%;
+    // transform: translate(-10%);
+    background: white;
+    font-size: 200%;
+    height:25%;
   }
 }

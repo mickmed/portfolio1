@@ -30,7 +30,7 @@
 		border: 0;
 		background: transparent;
 	}
-	.projects {
+	.main-content-scrollable {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -46,7 +46,7 @@
 	@media only screen and (min-width: 600px) {
 		width: 85%;
 		.burger {
-			transform: translate(-5%, -50%);
+			
 			.line {
 				margin-bottom: 1%;
 				border-bottom: 2px solid #bbb;

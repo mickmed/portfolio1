@@ -7,7 +7,7 @@
 
 This is a personal portfolio demonstrating projects.
 
-It is built with vanilla Javascript and a Rails backend
+It is built with vanilla Javascript and a [Rails backend](https://github.com/mickmed/portfolio-server)
  
 
 

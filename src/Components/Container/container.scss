@@ -3,12 +3,10 @@
   height: 100vh;
   display: flex;
   width: 96%;
-  justify-content: center;
+  justify-content: space-between;
   margin: 3% auto;
   position: fixed;
   z-index: 20;
-  max-width:1400px;
-  
   &:before {
     // margin: 5% 80% 0 0;
     margin: 0 auto;

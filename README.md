@@ -17,6 +17,7 @@ It is built with vanilla Javascript and a [Rails backend](https://github.com/mic
 - Sass
 - Font-Awesome
 - Ruby on Rails
+  
 
 <br>
 

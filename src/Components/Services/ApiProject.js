@@ -2,7 +2,7 @@ import { BaseUrl} from './BaseUrl.js'
 const baseUrl = BaseUrl()
 
 
-export let getProjects = async (type) => {
+export let getProjects = async () => {
   let results = await fetch(`${baseUrl}/projects`)
     .then((res) => {
       
@@ -12,12 +12,26 @@ export let getProjects = async (type) => {
       return ans
     })
 
-  return type, results
+  return results
+}
+
+export let getProject = async (id) => {
+  let result = await fetch(`${baseUrl}/projects/${id}`)
+    .then((res) => {
+      
+      return res.json()
+    })
+    .then((ans) => {
+      return ans
+    })
+
+  return result
 }
 
 
 
 export const addProject = async (body) => {
+  console.log('ere')
   console.log(JSON.stringify(body))
   const res = await fetch(`${baseUrl}/projects`, {
     method: `post`,

@@ -4,7 +4,6 @@ import { verify } from "../Services/ApiAuth.js"
 import { getTechnologies } from "../Services/ApiTech.js"
 import { Image } from "../Shared/Image.js"
 
-
 import {
   getProjects,
   addProject,
@@ -13,7 +12,7 @@ import {
   updateProjectTechnologies,
 } from "../Services/ApiProject.js"
 import { Form, Input, Button, Checkbox, Label } from "../Shared/Form.js"
-import { MakeForm } from '../Shared/MakeForm'
+import { EditForm } from "../Shared/EditForm"
 import "./projects.scss"
 
 /**********
@@ -82,107 +81,26 @@ export async function Projects() {
       }
     })
 
-    /***********
-    IF LOGGED IN 
-    ************/
+    /************************
+    EDIT PROJECT IF LOGGED IN 
+    ************************/
     if (await verify()) {
-
-      MakeForm(projectWrap, project)
-
-      console.log('here')
-      let btn = Button('btn', 'submit', 'submit')
+      let btn = Button("show-edit-form", "submit", "update")
       btn.addEventListener("click", () => {
-        router.navigate("/products/list/2")
+        console.log(projectWrap.lastChild.className)
+        if (projectWrap.lastChild.className === "show-edit-form")
+          EditForm(projectWrap, project)
+        else {
+          projectWrap.lastChild.remove()
+        }
       })
       projectWrap.appendChild(btn)
-      /******************
-      MAKE AND SET INPUTS
-      *******************/
-      // let newProject = {}
-      // let handleChange = (e) => {
-      //   newProject[e.target.name] = e.target.value
-      // }
-      // let form = Form("edit-project-form")
-      // Object.keys(project).forEach((key) => {
-      //   if (
-      //     key !== "id" &&
-      //     key !== "technologies" &&
-      //     key !== "created_at" &&
-      //     key !== "updated_at"
-      //   ) {
-      //     newProject[key] = project[key]
-      //     const input = Input({
-      //       className: "update-project",
-      //       name: key,
-      //       type: "text",
-      //       value: newProject[key],
-      //       placeholder: key,
-      //       handleChange: handleChange,
-      //     })
-      //     form.appendChild(input)
-      //   }
-      // })
-
-      // /**************
-      // MAKE CHECKBOXES
-      // ***************/
-      // let technologies = await getTechnologies()
-      // technologies.map((technology) => {
-      //   let checked
-      //   project.technologies.forEach((projectTechnology) => {
-      //     if (technology.name === projectTechnology.name) {
-      //       checked = "checked"
-      //     }
-      //   })
-      //   let bx = Checkbox(
-      //     "edit-project-chkbox",
-      //     technology.name,
-      //     "tech-box",
-      //     technology.id,
-      //     checked
-      //   )
-      //   form.appendChild(Label("tech-box-label", technology.name, "tech-box"))
-      //   form.appendChild(bx)
-      // })
-      // form.appendChild(Button("edit-project-button", "submit", "edit project"))
-      // projectWrap.appendChild(form)
-
-      // /**********
-      // SUBMIT FORM
-      // ***********/
-      // form.addEventListener("submit", async (evt) => {
-      //   evt.preventDefault()
-      //   const checkboxes = document.querySelectorAll(
-      //     "input[type=checkbox]:checked"
-      //   )
-      //   newProject.technologies = []
-      //   checkboxes.forEach((box) => {
-      //     newProject.technologies.push(box.value)
-      //   })
-      //   const projectId = project.id
-      //   await updateProject(newProject, project.id)
-      //   await Projects()
-      // })
-
-      // let deletebutton = projectWrap.appendChild(
-      //   btn("delete project", "button", "delete-btn")
-      // )
-      // deletebutton.addEventListener("click", async (evt) => {
-      //   evt.preventDefault()
-      //   await deleteProject(project.id)
-      //   await Projects()
-      // })
     }
-    // if (verify()) {
-    //   let addform = mainContentScrollable.appendChild(
-    //     Form('add-project-form')
-    //   )
-    //   addform.appendChild(btn("add project", "submit", "add-project-btn"))
-    //   addform.addEventListener("submit", async (e) => {
-    //     e.preventDefault()
-    //     await addProject(body)
-    //     await Projects()
-    //   })
-    // }
   })
+  if (await verify()) console.log("here")
+  let addBtn = Button("add-edit-form", "submit", "add project")
+  addBtn.addEventListener("click", () => {
+    EditForm(mainContentScrollable, resp[0], 'addProject')
+  })
+  ac(mainContentScrollable, addBtn)
 }

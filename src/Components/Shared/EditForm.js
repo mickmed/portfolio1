@@ -1,19 +1,24 @@
-import { Form, Input, Button, Checkbox, Label } from "../Shared/Form.js"
+import { Form, Input, Button, Checkbox, Label } from "./Form.js"
 import { getTechnologies } from "../Services/ApiTech.js"
 import {
-  getProjects,
-  addProject,
+  getProject,
+  addProject as addNewProject,
   updateProject,
   deleteProject,
   updateProjectTechnologies,
 } from "../Services/ApiProject.js"
-import { Projects } from '../Projects/Projects.js'
+import { Projects } from "../Projects/Projects.js"
 
-export const MakeForm = async (projectWrap, project) => {
-  // console.log(params)
+export const EditForm = async (projectWrap, project,addProject) => {
   /******************
-      MAKE AND SET INPUTS
-      *******************/
+  MAKE AND SET INPUTS
+  *******************/
+console.log('add', addProject)
+  if(addProject === 'addProject'){
+   for(let item in project){
+    project[item] = ''
+   }
+  }
   let newProject = {}
   let handleChange = (e) => {
     newProject[e.target.name] = e.target.value
@@ -31,7 +36,7 @@ export const MakeForm = async (projectWrap, project) => {
         className: "update-project",
         name: key,
         type: "text",
-        value: newProject[key],
+        value: addProject === 'addProject' ? '' : newProject[key],
         placeholder: key,
         handleChange: handleChange,
       })
@@ -40,12 +45,12 @@ export const MakeForm = async (projectWrap, project) => {
   })
 
   /**************
-     MAKE CHECKBOXES
-     ***************/
+   MAKE CHECKBOXES
+  ***************/
   let technologies = await getTechnologies()
   technologies.map((technology) => {
     let checked
-    project.technologies.forEach((projectTechnology) => {
+    addProject === '' && project.technologies.forEach((projectTechnology) => {
       if (technology.name === projectTechnology.name) {
         checked = "checked"
       }
@@ -54,8 +59,9 @@ export const MakeForm = async (projectWrap, project) => {
       "edit-project-chkbox",
       technology.name,
       "tech-box",
-      technology.id,
-      checked
+      addProject === 'addProject' ? '' : technology.id,
+      addProject === 'addProject' ? '' : checked,
+      
     )
     form.appendChild(Label("tech-box-label", technology.name, "tech-box"))
     form.appendChild(bx)
@@ -64,17 +70,22 @@ export const MakeForm = async (projectWrap, project) => {
   projectWrap.appendChild(form)
 
   /**********
-     SUBMIT FORM
-     ***********/
+   SUBMIT FORM
+  ***********/
+ console.log('add', addProject)
+
   form.addEventListener("submit", async (evt) => {
     evt.preventDefault()
+    console.log('add', addProject)
+
     const checkboxes = document.querySelectorAll("input[type=checkbox]:checked")
     newProject.technologies = []
     checkboxes.forEach((box) => {
       newProject.technologies.push(box.value)
     })
-   console.log(newProject)
-    await updateProject(newProject, project.id)
+    console.log('add', addProject)
+    addProject === 'addProject' ? await addNewProject(newProject) : await updateProject(newProject, project.id)
+
     await Projects()
   })
 

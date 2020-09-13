@@ -12,7 +12,7 @@ import {
   updateProjectTechnologies,
 } from "../Services/ApiProject.js"
 import { Form, Input, Button, Checkbox, Label } from "../Shared/Form.js"
-import { EditForm } from "../Shared/EditForm"
+import { EditProject } from "./EditProject"
 import "./projects.scss"
 
 /**********
@@ -25,20 +25,18 @@ const clearPage = (element) => {
 }
 
 export async function Projects() {
-  let mainContentScrollable = qs(".main-content-scrollable")
-  clearPage(mainContentScrollable)
-  let loading = ac(mainContentScrollable, cecl("div", "loading"))
+  let mainContent = qs(".main-content-scrollable")
+  clearPage(mainContent)
+  let loading = ac(mainContent, cecl("div", "loading"))
   loading.innerHTML = "loading..."
 
   /**************
   RENDER PROJECTS
   ***************/
-  clearPage(mainContentScrollable)
+  clearPage(mainContent)
   const resp = await getProjects()
   resp.forEach(async (project, index) => {
-    let projectWrap = mainContentScrollable.appendChild(
-      cecl("div", "project-wrap")
-    )
+    let projectWrap = mainContent.appendChild(cecl("div", "project-wrap"))
     let image = projectWrap.appendChild(
       Image(`src/img/${project.img_url}`, project.name, true, project.site_url)
     )
@@ -88,19 +86,43 @@ export async function Projects() {
       let btn = Button("show-edit-form", "submit", "update")
       btn.addEventListener("click", () => {
         console.log(projectWrap.lastChild.className)
-        if (projectWrap.lastChild.className === "show-edit-form")
-          EditForm(projectWrap, project)
+        if (projectWrap.lastChild.previousSibling.className === "show-edit-form")
+          EditProject(projectWrap, project)
         else {
           projectWrap.lastChild.remove()
         }
       })
       projectWrap.appendChild(btn)
     }
+
+ /************************
+  DELETE PROJECT BUTTON
+  ************************/
+ let btn = Button("delete-project", "submit", "delete")
+ btn.addEventListener("click", async () => {
+   await deleteProject(project.id)
+   await Projects()
+ })
+ projectWrap.appendChild(btn)
+
   })
-  if (await verify()) console.log("here")
-  let addBtn = Button("add-edit-form", "submit", "add project")
-  addBtn.addEventListener("click", () => {
-    EditForm(mainContentScrollable, resp[0], 'addProject')
-  })
-  ac(mainContentScrollable, addBtn)
+  /***********
+  ADD PROJECT 
+  ************/
+  console.log("here")
+  if (await verify()) {
+    let addBtn = Button("show-add-form", "submit", "add project")
+    addBtn.addEventListener("click", () => {
+      console.log(mainContent.lastChild.className)
+      if (mainContent.lastChild.className === "show-add-form")
+        EditProject(mainContent, resp[0], "addProject")
+      else {
+        mainContent.lastChild.remove()
+      }
+    })
+
+    ac(mainContent, addBtn)
+  }
+ 
+
 }

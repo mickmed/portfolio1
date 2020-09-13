@@ -50,7 +50,9 @@ export const Button = (className, type, innerText) => {
   return btn
 }
 
-export const Checkbox = (className, name, id, value, checked) => {
+export const Checkbox = (inputAtts) => {
+  let {className, name, id, value, checked} = inputAtts
+console.log(checked)
   let chkBox = createElement("input")
   className = className
   chkBox.name = name

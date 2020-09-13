@@ -79,33 +79,39 @@ export async function Projects() {
       }
     })
 
-    /************************
-    EDIT PROJECT IF LOGGED IN 
-    ************************/
+    /*******************
+     EDIT PROJECT BUTTON
+    ********************/
     if (await verify()) {
-      let btn = Button("show-edit-form", "submit", "update")
-      btn.addEventListener("click", () => {
+      const editProjectWrapper = cecl("div", "edit-project-wrapper")
+      const editButton = Button("show-edit-button", "submit", "update")
+      editButton.addEventListener("click", () => {
         console.log(projectWrap.lastChild.className)
-        if (projectWrap.lastChild.previousSibling.className === "show-edit-form")
+        if (
+          projectWrap.lastChild.className !== "edit-project-form"
+        )
           EditProject(projectWrap, project)
         else {
           projectWrap.lastChild.remove()
         }
       })
-      projectWrap.appendChild(btn)
+      editProjectWrapper.appendChild(editButton)
+
+    /************************
+     DELETE PROJECT BUTTON
+    ************************/
+      const deleteButton = Button("delete-project", "submit", "delete")
+      deleteButton.addEventListener("click", async () => {
+        let answer = confirm(`Are you sure you want to delete ${project.name}?`)
+        answer && await deleteProject(project.id)
+        answer && await Projects()
+      })
+      editProjectWrapper.appendChild(deleteButton)
+
+      projectWrap.appendChild(editProjectWrapper)
     }
-
- /************************
-  DELETE PROJECT BUTTON
-  ************************/
- let btn = Button("delete-project", "submit", "delete")
- btn.addEventListener("click", async () => {
-   await deleteProject(project.id)
-   await Projects()
- })
- projectWrap.appendChild(btn)
-
   })
+
   /***********
   ADD PROJECT 
   ************/
@@ -123,6 +129,4 @@ export async function Projects() {
 
     ac(mainContent, addBtn)
   }
- 
-
 }

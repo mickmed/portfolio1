@@ -55,9 +55,11 @@
 }
 
 
-.add-project-form{
+.edit-project-wrapper{
   display:flex;
   flex-direction:row;
+  flex-flow:reverse;
+  justify-content:space-between;
   width:70%;
   padding:1vh;
   
@@ -66,4 +68,25 @@
     height:3vh;
     margin:1vh 0;
   }
+}
+
+.edit-project-form{
+  width: 80%;
+  display:flex;
+  flex-wrap:wrap;
+  margin-top:5%;
+  background:lightgray;
+  padding:3%;
+ 
+  .edit-form-checkboxes, .edit-form-inputs{
+    display:flex;
+    flex-direction:column;
+    width:40%;
+    margin:0 5%;
+    justify-content:space-around;
+    .edit-form-input{
+
+    }
+  }
+
 }

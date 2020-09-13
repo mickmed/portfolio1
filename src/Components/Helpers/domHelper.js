@@ -6,9 +6,9 @@ export const cecl = (type, str) => {
   el.classList.add(str)
   return el
 }
-// export const ce = (str) => {
-//     return document.createElement(str)
-// }
+export const createElement = (str) => {
+    return document.createElement(str)
+}
 
 export const ca = (el, str) => {
   return el.classList.add(str)

@@ -6,7 +6,7 @@
   flex-direction: row;
   .link-modal {
     position: relative;
-    padding: 5%;
+    padding: 3%;
     font-family: "Overpass";
     font-style: italic;
     font-size: 3vw;
@@ -17,9 +17,9 @@
       margin-top: 5%;
       width: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       .tech-icon {
-        width: 20%;
+        width: 15%;
         // padding:0 2%;
       }
     }
@@ -30,9 +30,40 @@
 }
 @media only screen and (min-width: 600px) {
   .project-wrap{
+    margin:0 10%;
     .link-modal{
       // width:60%;
       padding:5%;
     }
+  }
+}
+@media only screen and (min-width: 900px) {
+  .project-wrap{
+    
+    .link-modal{
+      // width:60%;
+      padding:3%;
+      .tech-icons{
+        margin-top:3%;
+        justify-content: space-around;
+        .tech-icon{
+          width:10%;
+        }
+      }
+    }
+  }
+}
+
+
+.add-project-form{
+  display:flex;
+  flex-direction:row;
+  width:70%;
+  padding:1vh;
+  
+  
+  input{
+    height:3vh;
+    margin:1vh 0;
   }
 }

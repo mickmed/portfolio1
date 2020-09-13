@@ -60,7 +60,7 @@ export function setHeaders(headers) {
   
   export const verify = async () => {
     const token = localStorage.getItem("authToken")
-  console.log(token)
+  // console.log(token)
     if (token) {
       const res = await fetch(baseUrl + "/auth/verify", {
         method: "get",
@@ -68,7 +68,7 @@ export function setHeaders(headers) {
           "Content-Type": "application/json",
         }),
       })
-        .then((json) => {
+        .then((json) => {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
          
           return json.json()
         })

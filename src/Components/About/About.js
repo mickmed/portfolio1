@@ -43,6 +43,7 @@ export async function About() {
   let aboutImageWrapper = cecl('div', 'about-image-wrapper')
   let image = cecl('img', 'about-image')
   image.src = "src/img/100mill8.png"
+  image.decoding = 'sync'
   image.addEventListener("click", (evt) => {
     window.open('https://the100million.org/')
     target = "_blank"

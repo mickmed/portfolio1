@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const path = require("path")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+var webpack = require('webpack');
 
 module.exports = {
   devtool: "inline-source-map",
@@ -21,9 +22,10 @@ module.exports = {
     }),
   ],
 
-
   module: {
     rules: [
+ 
+
       {
         test: /\.html$/,
         use: ["html-loader"],
@@ -42,8 +44,6 @@ module.exports = {
           "sass-loader",
         ],
       },
-
-     
     ],
   },
 }

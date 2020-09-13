@@ -20,6 +20,10 @@ export function Navbar(parentDiv, data, type = "about") {
       "/signup": function () {
         RouterModules.modules.SignUp().then((module) => module.SignUp())
       },
+      'projects/edit/:id': function (params) {
+        // console.log("project route")
+        RouterModules.modules.MakeForm().then((module) => module.MakeForm(params.id))
+      },
       projects: function () {
         // console.log("project route")
         RouterModules.modules.Projects().then((module) => module.Projects())

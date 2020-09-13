@@ -17,9 +17,9 @@
     width: 70%;
   }
 }
-.para-wrap::-webkit-scrollbar {
-  display: none;
-}
+// .para-wrap::-webkit-scrollbar {
+//   display: none;
+// }
 
 @media only screen and (min-width: 600px) {
   .text {
@@ -28,6 +28,6 @@
 
 @media only screen and (min-width: 900px) {
   .text {
-    font-size:1.6vw;
+    font-size:1.3vw;
   }
 }

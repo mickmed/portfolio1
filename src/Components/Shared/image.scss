@@ -6,7 +6,7 @@
   transform: translateX(-5%);
   .img-wrapper {
     position: relative;
-    padding: 3% 5%;
+    padding: 6%;
     width: 100%;
 
     // transform:translateX(-25%);
@@ -21,7 +21,7 @@
       width: 0;
       height: 0;
       background: transparent;
-      border: 2px solid transparent;
+      border: 1px solid transparent;
       border-radius: 0 0 0;
       // animation: animate-img-wrapper 1.5s linear forwards;
     }

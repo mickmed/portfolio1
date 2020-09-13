@@ -1,9 +1,10 @@
-import "../Shared/Image"
-import { qs, qsa, cecl, btn } from "../Helpers/domHelper"
+// import "../Shared/Image"
+import { qs, qsa, cecl, ac, btn } from "../Helpers/domHelper"
 import { verify } from "../Services/ApiAuth.js"
 import { getTechnologies } from "../Services/ApiTech.js"
-import { Checkbox } from "../Shared/Checkbox.js"
 import { Image } from "../Shared/Image.js"
+
+
 import {
   getProjects,
   addProject,
@@ -11,174 +12,177 @@ import {
   deleteProject,
   updateProjectTechnologies,
 } from "../Services/ApiProject.js"
-import { Form } from "../Shared/Form.js"
+import { Form, Input, Button, Checkbox, Label } from "../Shared/Form.js"
+import { MakeForm } from '../Shared/MakeForm'
 import "./projects.scss"
 
+/**********
+ CLEAR PAGE
+***********/
+const clearPage = (element) => {
+  while (element.childNodes.length) {
+    element.removeChild(element.lastChild)
+  }
+}
+
 export async function Projects() {
-  
-
   let mainContentScrollable = qs(".main-content-scrollable")
- 
-  while (mainContentScrollable.childNodes.length) {
-    mainContentScrollable.removeChild(mainContentScrollable.lastChild)
-  }
-  
+  clearPage(mainContentScrollable)
+  let loading = ac(mainContentScrollable, cecl("div", "loading"))
+  loading.innerHTML = "loading..."
 
-  let res = await getProjects()
-  let body = {}
-  let handleChange = (e) => {
-    body[e.target.name] = e.target.value
-  }
-  
-  
-
-  res.forEach(async (e, i) => {
-  
-    let paraWrap = mainContentScrollable.appendChild(cecl("div", "project-wrap"))
-    let image = paraWrap.appendChild(
-      Image(`src/img/${e.img_url}`, e.name, true, e.site_url)
+  /**************
+  RENDER PROJECTS
+  ***************/
+  clearPage(mainContentScrollable)
+  const resp = await getProjects()
+  resp.forEach(async (project, index) => {
+    let projectWrap = mainContentScrollable.appendChild(
+      cecl("div", "project-wrap")
     )
-    let z = "false"
-   
-
-  
+    let image = projectWrap.appendChild(
+      Image(`src/img/${project.img_url}`, project.name, true, project.site_url)
+    )
+    let bool = "false"
     let linkModal = cecl("div", "link-modal")
-    linkModal.innerText = e.subtitle
-   
+
     let imgWrapper = qsa(".img-wrapper")
     let innerImgWrap = qsa(".inner-img-wrap")
-
-    let techIcons = cecl('div', 'tech-icons')
-    e.technologies.forEach(icon=>{
-      let techIcon = techIcons.appendChild(cecl('img', 'tech-icon'))
+    let techIcons = cecl("div", "tech-icons")
+    project.technologies.forEach((icon) => {
+      let techIcon = techIcons.appendChild(cecl("img", "tech-icon"))
       techIcon.src = `src/img/${icon.icon_url}`
     })
-    console.log(techIcons)
     linkModal.appendChild(techIcons)
+    let linkModalIcons = linkModal.appendChild(cecl("div", "link-modal-icons"))
+    linkModalIcons.innerHTML = `<a href=${project.site_url} target='_blank'><i class="fas fa-home fa-fw"></i></a>`
 
-    let linkModalIcons = linkModal.appendChild(
-      cecl("div", "link-modal-icons")
-    )
+    /**************
+    ADD LINK MODAL
+    ***************/
+    imgWrapper[index].addEventListener("click", async () => {
+      if (bool === "true") {
+        bool = "false"
+        innerImgWrap[index].classList.add("close-curtain")
+        innerImgWrap[index].classList.remove("open-curtain")
+        imgWrapper[index].lastChild.remove()
+      } else if (bool === "false") {
+        bool = "true"
+        innerImgWrap[index].classList.add("open-curtain")
+        innerImgWrap[index].classList.remove("close-curtain")
+        imgWrapper[index].appendChild(linkModal)
+        // let styleElem = document.head.appendChild(document.createElement("style"));
+        // styleElem.innerHTML = ".img-wrapper:before {animation: animate-img-wrapper 1.5s linear forwards;}"
+        let iw = imgWrapper[index].style
+        iw.setProperty(
+          "--animation",
+          "animate-img-wrapper 1.5s linear forwards"
+        )
+        innerImgWrap[index].appendChild(linkModalIcons)
+      }
+    })
 
-
-    linkModalIcons.innerHTML =
-      `<a href=${e.site_url} target='_blank'><i class="fas fa-home fa-fw"></i></a>`
-
-
-
-    // ****IMAGE CLICK FOR MOBILE ADD LINK MODAL**** //
-
-    if (window.innerWidth < 4600) {
-      imgWrapper[i].addEventListener("click", async () => {
-        if (z === "true") {
-          z = "false"
-          innerImgWrap[i].classList.add("close-curtain")
-          innerImgWrap[i].classList.remove("open-curtain")
-          imgWrapper[i].lastChild.remove()
-        } else if (z === "false") {
-          z = "true"
-          innerImgWrap[i].classList.add("open-curtain")
-          innerImgWrap[i].classList.remove("close-curtain")
-          imgWrapper[i].appendChild(linkModal)
-
-          // let styleElem = document.head.appendChild(document.createElement("style"));
-          // styleElem.innerHTML = ".img-wrapper:before {animation: animate-img-wrapper 1.5s linear forwards;}"
-          let iw = imgWrapper[i].style
-          iw.setProperty(
-            "--animation",
-            "animate-img-wrapper 1.5s linear forwards"
-          )
-
-          innerImgWrap[i].appendChild(linkModalIcons)
-        }
-      })
-
-        
-        // const typing = async (str) => {
-        //   if (i < e.subtitle.length) {
-        //     linkModal.innerHTML += e.subtitle.charAt(i)
-        //     linkModal.style.opacity = i / e.subtitle.length
-
-        //     for (let j = 0; j < linkModalIcons.length; j++) {
-        //       linkModalIcons[j].style.opacity = i / e.subtitle.length
-        //     }
-        //     i++
-        //     await setTimeout(typing, 25)
-        //   }
-        // }
-
-      //   let s = await typing()
-    } else {
-      // ****IMAGE HOVER FOR TABLET AND DESKTOP****//
-      let hover = paraWrap.addEventListener("click", async () => {
-        qs(".inner-img-wrap").classList.add("inner-img-wrap-hover")
-
-        paraWrap.appendChild(linkModal)
-      })
-
-      let hoverOut = paraWrap.addEventListener("mouseout", () => {
-        let linkModal = qs(".link-modal")
-
-        linkModal && paraWrap.lastChild.remove()
-      })
-      innerImgWrap[i].appendChild(linkModalIcons)
-
-    }
-
-    ///If Logged In///
+    /***********
+    IF LOGGED IN 
+    ************/
     if (await verify()) {
-      let form = paraWrap.appendChild(Form(e, handleChange))
-      form.appendChild(btn("update project", "submit", "update-btn"))
-      let technologies = await getTechnologies()
-      technologies.map((el) => {
-        let checked
-        e.technologies.forEach((pTech) => {
-         
-          if (pTech.name === el.name) {
-            checked = "checked"
-          }
-        })
-        let chkBox = Checkbox(e, el, checked)
-        form.appendChild(chkBox)
-        let label = cecl("label", "tech-label")
-        label.for = "tech-chkBox"
-        label.innerHTML = el.name
-        form.appendChild(label)
+
+      MakeForm(projectWrap, project)
+
+      console.log('here')
+      let btn = Button('btn', 'submit', 'submit')
+      btn.addEventListener("click", () => {
+        router.navigate("/products/list/2")
       })
-      // console.log(e)
-      form.addEventListener("submit", async (evt) => {
-        evt.preventDefault()
-        let boxes = document.getElementsByName(e.name)
-        let boxesArray = []
-        boxes.forEach((el) => {
-          el.checked && boxesArray.push(el.value)
-        })
-        // console.log(boxesArray)
-        body = { ...e, ...body }
-        delete body.id
-        delete body.created_at
-        delete body.updated_at
-        delete body.technologies
-        body = { project: body, technologies: boxesArray }
-        let shoonga = await updateProject(body, e.id)
-        console.log(shoonga, body)
-        await Projects()
-      })
-      let deletebutton = paraWrap.appendChild(
-        btn("delete project", "button", "delete-btn")
-      )
-      deletebutton.addEventListener("click", async (evt) => {
-        evt.preventDefault()
-        await deleteProject(e.id)
-        await Projects()
-      })
-      let addform = mainContentScrollable.appendChild(Form(res[0], handleChange))
-      addform.appendChild(btn("add project", "submit", "add-project-btn"))
-      addform.addEventListener("submit", async (e) => {
-        e.preventDefault()
-        await addProject(body)
-        await Projects()
-      })
+      projectWrap.appendChild(btn)
+      /******************
+      MAKE AND SET INPUTS
+      *******************/
+      // let newProject = {}
+      // let handleChange = (e) => {
+      //   newProject[e.target.name] = e.target.value
+      // }
+      // let form = Form("edit-project-form")
+      // Object.keys(project).forEach((key) => {
+      //   if (
+      //     key !== "id" &&
+      //     key !== "technologies" &&
+      //     key !== "created_at" &&
+      //     key !== "updated_at"
+      //   ) {
+      //     newProject[key] = project[key]
+      //     const input = Input({
+      //       className: "update-project",
+      //       name: key,
+      //       type: "text",
+      //       value: newProject[key],
+      //       placeholder: key,
+      //       handleChange: handleChange,
+      //     })
+      //     form.appendChild(input)
+      //   }
+      // })
+
+      // /**************
+      // MAKE CHECKBOXES
+      // ***************/
+      // let technologies = await getTechnologies()
+      // technologies.map((technology) => {
+      //   let checked
+      //   project.technologies.forEach((projectTechnology) => {
+      //     if (technology.name === projectTechnology.name) {
+      //       checked = "checked"
+      //     }
+      //   })
+      //   let bx = Checkbox(
+      //     "edit-project-chkbox",
+      //     technology.name,
+      //     "tech-box",
+      //     technology.id,
+      //     checked
+      //   )
+      //   form.appendChild(Label("tech-box-label", technology.name, "tech-box"))
+      //   form.appendChild(bx)
+      // })
+      // form.appendChild(Button("edit-project-button", "submit", "edit project"))
+      // projectWrap.appendChild(form)
+
+      // /**********
+      // SUBMIT FORM
+      // ***********/
+      // form.addEventListener("submit", async (evt) => {
+      //   evt.preventDefault()
+      //   const checkboxes = document.querySelectorAll(
+      //     "input[type=checkbox]:checked"
+      //   )
+      //   newProject.technologies = []
+      //   checkboxes.forEach((box) => {
+      //     newProject.technologies.push(box.value)
+      //   })
+      //   const projectId = project.id
+      //   await updateProject(newProject, project.id)
+      //   await Projects()
+      // })
+
+      // let deletebutton = projectWrap.appendChild(
+      //   btn("delete project", "button", "delete-btn")
+      // )
+      // deletebutton.addEventListener("click", async (evt) => {
+      //   evt.preventDefault()
+      //   await deleteProject(project.id)
+      //   await Projects()
+      // })
     }
+    // if (verify()) {
+    //   let addform = mainContentScrollable.appendChild(
+    //     Form('add-project-form')
+    //   )
+    //   addform.appendChild(btn("add project", "submit", "add-project-btn"))
+    //   addform.addEventListener("submit", async (e) => {
+    //     e.preventDefault()
+    //     await addProject(body)
+    //     await Projects()
+    //   })
+    // }
   })
 }

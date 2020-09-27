@@ -27,14 +27,16 @@ const clearPage = (element) => {
 export async function Projects() {
   let mainContent = qs(".main-content-scrollable")
   clearPage(mainContent)
-  let loading = ac(mainContent, cecl("div", "loading"))
+  let loading  = mainContent.appendChild(cecl("div", "loading"))
   loading.innerHTML = "loading..."
+
 
   /**************
   RENDER PROJECTS
   ***************/
-  clearPage(mainContent)
   const resp = await getProjects()
+  clearPage(mainContent)
+
   resp.forEach(async (project, index) => {
     let projectWrap = mainContent.appendChild(cecl("div", "project-wrap"))
     let image = projectWrap.appendChild(
@@ -115,7 +117,6 @@ export async function Projects() {
   /***********
   ADD PROJECT 
   ************/
-  console.log("here")
   if (await verify()) {
     let addBtn = Button("show-add-form", "submit", "add project")
     addBtn.addEventListener("click", () => {

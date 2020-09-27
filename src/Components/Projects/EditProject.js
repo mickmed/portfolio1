@@ -100,7 +100,7 @@ export const EditProject = async (projectWrap, project, addProject) => {
     checkboxes.forEach((box) => {
       newProject.technologies.push(box.value)
     })
-    console.log("add", addProject)
+    console.log("add", newProject)
     addProject === "addProject"
       ? await addNewProject(newProject)
       : await updateProject(newProject, project.id)

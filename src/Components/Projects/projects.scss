@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Overpass:100,300,400|");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Overpass:100,300,400|Roboto:100,300,600");
 
 .project-wrap {
   position: relative;
@@ -7,7 +7,7 @@
   .link-modal {
     position: relative;
     padding: 3%;
-    font-family: "Overpass";
+    font-family: "Roboto";
     font-style: italic;
     font-size: 3vw;
     height: 10%;
@@ -60,7 +60,8 @@
   flex-direction:row;
   flex-flow:reverse;
   justify-content:space-between;
-  width:70%;
+  width:60%;
+  margin:0 auto;
   padding:1vh;
   
   
@@ -90,3 +91,5 @@
   }
 
 }
+
+//filler

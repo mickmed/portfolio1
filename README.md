@@ -17,7 +17,12 @@ It is built with vanilla Javascript and a [Rails backend](https://github.com/mic
 - Navigo Router
 - Sass
 - Font-Awesome
+  <br>
 - Ruby on Rails
+- Postgresql
+- BCrypt
+- JWT
+- Heroku
   
 
 <br>

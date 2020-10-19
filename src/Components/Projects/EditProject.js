@@ -55,7 +55,7 @@ export const EditProject = async (projectWrap, project, addProject) => {
   let technologies = await getTechnologies()
   technologies.map((technology) => {
     
-    let checked
+  let checked
     addProject === undefined &&
       project.technologies.forEach((projectTechnology) => {
         if (technology.name === projectTechnology.name) {

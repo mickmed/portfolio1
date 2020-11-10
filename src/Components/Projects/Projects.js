@@ -37,6 +37,9 @@ export async function Projects() {
   const resp = await getProjects()
   clearPage(mainContent)
 
+
+  const height = mainContent.clientHeight
+  console.log(height)
   resp.forEach(async (project, index) => {
     let projectWrap = mainContent.appendChild(cecl("div", "project-wrap"))
     let image = projectWrap.appendChild(
@@ -130,4 +133,13 @@ export async function Projects() {
 
     ac(mainContent, addBtn)
   }
+
+  // //down button
+
+  // const seeMoreBtn = Button('see-more-btn', 'submit', 'see more')
+
+  // ac(mainContent, seeMoreBtn)
+
+
+
 }

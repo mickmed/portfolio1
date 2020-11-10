@@ -4,8 +4,9 @@
 	top: 5;
 	// margin-left: 6%;
 	width: 89%;
-	// height: 90%;
+	// height: 2000px;
 	scrollbar-width: none;
+
 
 	.burger {
 		display: block;
@@ -45,6 +46,20 @@
 	}
 	::-webkit-scrollbar {
 		display: none;
+	}
+	.see-more-btn{
+		position: absolute;
+		background:transparent;
+		border:0;
+		font-size:220%;
+		right:0;
+		color:lightblue;
+		bottom:250;
+		transform:translate(5%);
+
+	}
+	.see-more-btn-flip{
+		transform:rotate(180deg);
 	}
 	@media only screen and (min-width: 600px) {
 		// width: 85%;

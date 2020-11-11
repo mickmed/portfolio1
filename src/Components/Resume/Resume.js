@@ -1,5 +1,7 @@
 import "../Shared/Image"
 import { qs, cecl } from "../Helpers/domHelper"
+import { Footer } from "../Footer/Footer.js"
+
 
 import "./resume.scss"
 
@@ -68,6 +70,7 @@ export function Resume() {
 
     option.classList.remove("highlight")
   })
+  mainContentScrollable.appendChild(Footer()) 
 
   //   if (type === ".PDF") {
   // console.log(navigator.userAgent)

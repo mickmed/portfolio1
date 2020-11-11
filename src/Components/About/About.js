@@ -1,5 +1,5 @@
 import { qs, cecl } from "../Helpers/domHelper"
-import Footer from "../Shared/Footer.js"
+import { Footer } from "../Footer/Footer.js"
 import "./about.scss"
 export async function About() {
   let text =
@@ -66,4 +66,6 @@ export async function About() {
   projectsLink.addEventListener("click", () => {
     window.location.href = "/projects"
   })
+
+  mainContentScrollable.appendChild(Footer()) 
 }

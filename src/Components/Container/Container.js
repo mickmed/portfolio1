@@ -1,5 +1,5 @@
 import { Sidebar } from '../Sidebar/Sidebar.js'
-import { Footer } from '../Shared/Footer.js'
+import { Footer }from '../Footer/Footer.js'
 import { MainContent } from '../MainContent/MainContent.js'
 import { cl, cecl, ce, ca, ac, qs } from '../Helpers/domHelper'
 import { Router } from '../../Router/Router.js'
@@ -10,9 +10,9 @@ import "./container.scss"
 export const Container = () => {
   const container = cecl('div', 'container')
   container.appendChild(Sidebar())
-  container.appendChild(MainContent())
+  const mainContent = container.appendChild(MainContent())
 
-  container.appendChild(Footer()) 
+  // mainContent.appendChild(Footer()) 
   
   return container
 }

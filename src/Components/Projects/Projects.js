@@ -3,6 +3,7 @@ import { qs, qsa, cecl, ac, btn } from "../Helpers/domHelper"
 import { verify } from "../Services/ApiAuth.js"
 import { getTechnologies } from "../Services/ApiTech.js"
 import { Image } from "../Shared/Image.js"
+import { Footer } from "../Footer/Footer.js"
 
 import {
   getProjects,
@@ -140,6 +141,7 @@ export async function Projects() {
 
   // ac(mainContent, seeMoreBtn)
 
+  mainContent.appendChild(Footer()) 
 
 
 }

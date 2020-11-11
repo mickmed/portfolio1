@@ -40,8 +40,8 @@
 		margin-top: 5% 0;
 		overflow-y: scroll;
 		scrollbar-width: none;
-		height: 80%;
-		width:90%;
+		height: 88%;
+		width:100%;
 		margin: 0 auto;
 	}
 	::-webkit-scrollbar {
@@ -54,7 +54,7 @@
 		font-size:220%;
 		right:0;
 		color:lightblue;
-		bottom:250;
+		top:80%;
 		transform:translate(5%);
 
 	}

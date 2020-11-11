@@ -28,12 +28,12 @@ export const MainContent = () => {
       let int = setInterval(() => {
         el.scrollTo(0, i)
         i += 20
-        if (i >= 1000) clearInterval(int)
+        if (i >= 1300) clearInterval(int)
       }, 20)
     } else {
       className = "see-more-btn-flip"
       e.target.parentElement.classList.toggle("see-more-btn-flip")
-      let i = 1000
+      let i = 1300
       let int = setInterval(() => {
         el.scrollTo(0, i)
         i -= 30

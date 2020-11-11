@@ -23,6 +23,3 @@ export const Footer = () => {
 
   return footer
 }
-window.open(
-  "https://mail.google.com/mail/?view=cm&fs=1&to=mickrothnyc@gmail.com"
-)

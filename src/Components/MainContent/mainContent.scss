@@ -30,6 +30,7 @@
 		right: 0;
 		border: 0;
 		background: transparent;
+		font-size:130%;	
 	}
 	.main-content-scrollable {
 		display: flex;
@@ -40,7 +41,7 @@
 		margin-top: 5% 0;
 		overflow-y: scroll;
 		scrollbar-width: none;
-		height: 86%;
+		height: 91vh;
 		width:100%;
 		margin: 0 auto;
 	}
@@ -54,8 +55,8 @@
 		font-size:220%;
 		right:0;
 		color:lightblue;
-		top:80%;
-		transform:translate(5%);
+		top:77%;
+		// transform:translate(5%);
 
 	}
 	.see-more-btn-flip{
